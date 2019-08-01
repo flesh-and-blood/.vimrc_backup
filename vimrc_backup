@@ -1,0 +1,209 @@
+"" it is installed by trizen -S vim-badwolf-git
+colorscheme badwolf 
+
+
+
+iab viod void 
+iab vdoi void
+iab vdio void
+
+iab reutrn return
+
+iab calss class
+
+iab cahr char
+iab chra char
+
+iab itn int
+
+iab claer clear
+iab cleaar clear
+iab cleear clear
+iab clare clear
+
+iab wath what
+
+
+" make pathogen plugin manager work
+execute pathogen#infect()
+
+"set the , to the leader for mapping
+let mapleader=','
+
+" g means global
+let g:netrw_liststyle=3
+
+let g:netrw_banner=0
+
+
+
+
+
+syntax enable
+
+filetype plugin indent on
+
+" load filetype-specific indent files
+filetype indent on
+
+
+
+
+
+
+" search down into subfolders
+" provides tab-completion for all file-related tasks
+set path+=**
+
+set expandtab
+
+set autoindent
+
+set smartindent
+
+set shiftround
+
+set tabstop=4
+
+set softtabstop=4
+
+set shiftwidth=4
+
+" show line relative numbers
+set relativenumber
+
+" show command in the buttom bar
+set showcmd
+
+" highlight current line
+set cursorline
+
+" show line relative numbers
+set relativenumber
+
+" show command in the buttom bar
+set showcmd
+
+" highlight current line
+set cursorline
+
+" visual autocomplete for command menu
+set wildmenu
+
+set lazyredraw
+
+" highlight match {[()]}
+set showmatch
+
+set hlsearch
+
+set incsearch
+
+" enable folding
+set foldenable
+
+" open most folds by default
+set foldlevelstart=12
+
+" fold based on indent level
+set foldmethod=indent
+
+
+
+
+
+
+inoremap <leader>ifn #ifndef<CR>#endif<esc>kA<space>
+
+inoremap <leader>ifd #ifdef<CR>#endif<esc>kA<space>
+
+inoremap <leader>end #endif
+
+inoremap <leader>inc #include<space><><esc>i
+
+inoremap <leader>def #define<space>
+
+
+
+" set jk for esc
+" esc maybe too far, hope jk will not be used in future
+inoremap jk <esc>
+vnoremap jk <esc>
+
+" move to the beginning of the line
+nnoremap B ^
+vnoremap B ^
+" move to the end of the line
+nnoremap E $
+vnoremap E $
+
+" this is installed by trizen -S vim-gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" ,v can be used as vsplit
+nnoremap <leader>v :vsplit<CR>
+
+" ,h can be used as split
+nnoremap <leader>h :split<CR>
+
+
+
+
+
+
+
+nnoremap <leader>s :call SwitchSourceHeader() <CR>
+function! SwitchSourceHeader()
+        if (expand("%:e") == "cpp")
+                find %:t:r.h
+        else
+                find %:t:r.cpp
+        endif
+endfunction
+
+
+
+
+
+
+
+inoremap ( ()<esc>i
+inoremap [ []<esc>i
+inoremap { {<CR>}<esc>kA<CR>
+inoremap ) :call ClosePair(')') <CR>
+inoremap ] :call ClosePair(']') <CR>
+inoremap } :call CloseBrachet() <CR>
+inoremap ' :call QuoteDelim(''') <CR>
+inoremap " :call QuoteDelim('"') <CR>
+
+function ClosePair(char)
+    if getline('.')[col('.' - 1) == a:char]
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endfunction
+
+function CloseBrachet()
+    if match(getline(line('.') + 1), '\s*}') < 0
+        return "\<CR>}"
+    else
+        return "\<esc>j0f}a"
+    endif
+endfunction
+
+function QuoteDelim(char)
+    let line = getline('.')
+    let col = col('.')
+    if line[col - 2] == "\\"
+        return a:char
+    elseif line[col - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char.a:char."\<esc>i"
+    endif
+endfunction
+         
+
+
+
