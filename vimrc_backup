@@ -4,212 +4,231 @@
 " /somethinfg search result can also be a location
 " \+ refers to the same character leading the \
 
-" it is installed by trizen -S vim-badwolf-git
-colorscheme badwolf 
+" color theme setting------------   {{{
+    " it is installed by trizen -S vim-badwolf-git
+    colorscheme badwolf 
+"" }}}
 
-iab viod void 
-iab vdoi void
-iab vdio void
+" type mistake repair------------   {{{
+    iab viod void
+    iab vdoi void
+    iab vdio void
 
-iab somethinfg something
-iab soemthign something
-iab somethign something
-iab someghitn something
-iab someghitn something
+    iab somethinfg something
+    iab soemthign something
+    iab somethign something
+    iab someghitn something
+    iab someghitn something
 
-iab reutrn return
-iab reutnr return
+    iab reutrn return
+    iab reutnr return
 
-iab noraml normal
+    iab noraml normal
 
-iab calss class
+    iab calss class
 
-iab cahr char
-iab chra char
+    iab cahr char
+    iab chra char
 
-iab itn int
+    iab itn int
 
-iab claer clear
-iab cleaar clear
-iab cleear clear
-iab clare clear
+    iab claer clear
+    iab cleaar clear
+    iab cleear clear
+    iab clare clear
 
-iab wath what
+    iab wath what
+"" }}}
 
+" orginal global setting------------   {{{
+    let mapleader=','
 
-"set the , to the leader for mapping
-let mapleader=','
+    " g means global
+    let g:netrw_liststyle=3
 
-" g means global
-let g:netrw_liststyle=3
+    let g:netrw_banner=0
+    
+    syntax enable
 
-let g:netrw_banner=0
+    filetype plugin indent on
 
+    filetype indent on
+"" }}}
 
-syntax enable
+" ------------   {{{
+    " search down into subfolders
+    " provides tab-completion for all file-related tasks
+    set path+=**
 
-filetype plugin indent on
+    set expandtab
 
-" load filetype-specific indent files
-filetype indent on
+    set autoindent
 
+    set smartindent
 
-" search down into subfolders
-" provides tab-completion for all file-related tasks
-set path+=**
+    set shiftround
 
-set expandtab
+    set tabstop=4
 
-set autoindent
+    set softtabstop=4
 
-set smartindent
+    set shiftwidth=4
 
-set shiftround
+    " show line relative numbers
+    set relativenumber
 
-set tabstop=4
+    " show command in the buttom bar
+    set showcmd
 
-set softtabstop=4
+    " highlight current line
+    set cursorline
 
-set shiftwidth=4
+    " show line relative numbers
+    set relativenumber
 
-" show line relative numbers
-set relativenumber
+    " show command in the buttom bar
+    set showcmd
 
-" show command in the buttom bar
-set showcmd
+    " highlight current line
+    set cursorline
 
-" highlight current line
-set cursorline
+    " visual autocomplete for command menu
+    set wildmenu
 
-" show line relative numbers
-set relativenumber
+    set lazyredraw
 
-" show command in the buttom bar
-set showcmd
+    " highlight match {[()]}
+    set showmatch
 
-" highlight current line
-set cursorline
+    set hlsearch
 
-" visual autocomplete for command menu
-set wildmenu
+    set incsearch
 
-set lazyredraw
+    " enable folding
+    set foldenable
 
-" highlight match {[()]}
-set showmatch
+    " open most folds by default
+    set foldlevelstart=12
 
-set hlsearch
+    " fold based on indent level
+    set foldmethod=indent
+"" }}}
 
-set incsearch
+" quick location ------------   {{{
+    " you can call this inner next ( of this line
+    onoremap in( :<c-u>normal! f(vi(<CR>
 
-" enable folding
-set foldenable
+    " you can call this inner last of this line 
+    onoremap il( :<c-u>normal! F)vi(<CR>
+    
+    " same thing with [
+    onoremap in[ :<c-u>normal! f[vi(<CR>
+    onoremap il] :<c-u>normal! F]vi(<CR>
 
-" open most folds by default
-set foldlevelstart=12
+    inoremap <leader>com "------------<space><space><space>{{{<CR>"<space>}}}<esc>k0a<space>
+"" }}}
 
-" fold based on indent level
-set foldmethod=indent
+" inoremaps without function------------   {{{
+    inoremap <leader>ifn #ifndef<CR>#endif<esc>kA<space>
 
+    inoremap <leader>ifd #ifdef<CR>#endif<esc>kA<space>
 
-" you can call this inner next (
-onoremap in( :<c-u>normal! f(vi(<CR>
+    inoremap <leader>end #endif
 
-" you can call this inner last 
-onoremap il( :<c-u>normal! F)vi(<CR>
+    inoremap <leader>inc #include<space><><esc>i
 
+    inoremap <leader>def #define<space>
 
-inoremap <leader>ifn #ifndef<CR>#endif<esc>kA<space>
+    inoremap <leader>els #else<space>
 
-inoremap <leader>ifd #ifdef<CR>#endif<esc>kA<space>
+    inoremap <leader>eli #elif<space>
 
-inoremap <leader>end #endif
+    inoremap .<space> ->
+"" }}}
 
-inoremap <leader>inc #include<space><><esc>i
+" some maps between many modes------------   {{{
+    " set jk for esc
+    " esc maybe too far, hope jk will not be used in future
+    inoremap jk <esc>
+    vnoremap jk <esc>
 
-inoremap <leader>def #define<space>
+    " move to the beginning of the line
+    nnoremap B ^
+    vnoremap B ^
+    " move to the end of the line
+    nnoremap E $
+    vnoremap E $
 
-inoremap <leader>els #else<space>i
+    noremap <space> za
+"" }}}
 
-inoremap <leader>eli #elif<space>
+" nnoremaps------------   {{{
+    " this is installed by trizen -S vim-gundo
+    nnoremap <leader>u :GundoToggle<CR>
 
-" set jk for esc
-" esc maybe too far, hope jk will not be used in future
-inoremap jk <esc>
-vnoremap jk <esc>
+    nnoremap <leader>m :make<CR>
 
-" move to the beginning of the line
-nnoremap B ^
-vnoremap B ^
-" move to the end of the line
-nnoremap E $
-vnoremap E $
+    nnoremap <leader>v :vsplit<CR>
 
+    nnoremap <leader>h :split<CR>
 
-" this is installed by trizen -S vim-gundo
-nnoremap <leader>u :GundoToggle<CR>
+    nnoremap <leader>q :wq<CR>
 
-nnoremap <leader>m :make<CR>
+    nnoremap <leader>w :w<CR>
 
-nnoremap <leader>v :vsplit<CR>
+    " nh stands for no hightlight
+    nnoremap <leader>nh :nohlsearch<CR>
+"" }}}
 
-nnoremap <leader>h :split<CR>
-
-nnoremap <leader>q :q<CR>
-
-nnoremap <leader>w :w<CR>
-
-" nh stands for no hightlight
-nnoremap <leader>nh :nohlsearch<CR>
-
-
-nnoremap <leader>s :call SwitchSourceHeader() <CR>
-function! SwitchSourceHeader()
+" nnoremaps with function------------   {{{
+    nnoremap <leader>s :call SwitchSourceHeader() <CR>
+    function! SwitchSourceHeader()
         if (expand("%:e") == "cpp")
-                find %:t:r.h
+            find %:t:r.h
         else
-                find %:t:r.cpp
+            find %:t:r.cpp
         endif
-endfunction
+    endfunction
+"" }}}
 
 
-inoremap ( ()<esc>i
-inoremap [ []<esc>i
-inoremap { {<CR>}<esc>kA<CR>
-"inoremap ) :call ClosePair(')') <CR>
-"inoremap ] :call ClosePair(']') <CR>
-"inoremap } :call CloseBrachet() <CR>
-"inoremap ' :call QuoteDelim(''') <CR>
-"inoremap \" :call QuoteDelim('"') <CR>
+" inoremaps with function------------   {{{
+    inoremap ( ()<esc>i
+    inoremap [ []<esc>i
+    inoremap { {<CR>}<esc>kA<CR>
+    "inoremap ) :call ClosePair(')') <CR>
+    "inoremap ] :call ClosePair(']') <CR>
+    "inoremap } :call CloseBrachet() <CR>
+    "inoremap ' :call QuoteDelim(''') <CR>
+    "inoremap \" :call QuoteDelim('"') <CR>
 
-function ClosePair(char)
-    if getline('.')[col('.' - 1) == a:char]
-        return "\<Right>"
-    else
-        return a:char
-    endif
-endfunction
+    function ClosePair(char)
+        if getline('.')[col('.' - 1) == a:char]
+            return "\<Right>"
+        else
+            return a:char
+        endif
+    endfunction
 
-function CloseBrachet()
-    if match(getline(line('.') + 1), '\s*}') < 0
-        return "\<CR>}"
-    else
-        return "\<esc>j0f}a"
-    endif
-endfunction
+    function CloseBrachet()
+        if match(getline(line('.') + 1), '\s*}') < 0
+            return "\<CR>}"
+        else
+            return "\<esc>j0f}a"
+        endif
+    endfunction
 
-function QuoteDelim(char)
-    let line = getline('.')
-    let col = col('.')
-    if line[col - 2] == "\\"
-        return a:char
-    elseif line[col - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char.a:char."\<esc>i"
-    endif
-endfunction
-         
-
+    function QuoteDelim(char)
+        let line = getline('.')
+        let col = col('.')
+        if line[col - 2] == "\\"
+            return a:char
+        elseif line[col - 1] == a:char
+            return "\<Right>"
+        else
+            return a:char.a:char."\<esc>i"
+        endif
+    endfunction
+"" }}}
 
 
