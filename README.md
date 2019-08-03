@@ -1,2 +1,2 @@
 # .vimrc_backup
-my .vimrc backup specific for c++
+my .vimrc specific for c++
