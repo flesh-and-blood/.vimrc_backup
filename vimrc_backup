@@ -10,6 +10,27 @@
 "" }}}
 
 " type mistake repair------------   {{{
+
+    iab cla class<CR>{public:<CR><CR>private:}<esc>jA;<esc>kkkkkA
+    
+    iab str struct<CR>{}<esc>jA;<esc>kkkA
+
+    iab enu enum<CR>{}<esc>jA;<esc>kkkA
+
+    iab if if<space>()<esc>o{}<esc>kkE<esc>i
+
+    iab whi while<space>()<esc>o{}<esc>kkE<esc>i
+
+    iab for for<space>()<esc>o{}<esc>kkEi
+
+    iab swi switch<space>()<esc>o{}<esc>kkEi
+
+    iab eli else<space>if<space>()<esc>o{}<esc>kkEi
+
+    iab els else<space>()<esc>o{}<esc>kkEi
+
+    iab cas case:<space><esc>B4li
+
     iab viod void
     iab vdoi void
     iab vdio void
@@ -196,14 +217,14 @@
     inoremap ( ()<esc>i
     inoremap [ []<esc>i
     inoremap { {<CR>}<esc>kA<CR>
-    "inoremap ) :call ClosePair(')') <CR>
-    "inoremap ] :call ClosePair(']') <CR>
-    "inoremap } :call CloseBrachet() <CR>
-    "inoremap ' :call QuoteDelim(''') <CR>
-    "inoremap \" :call QuoteDelim('"') <CR>
+    inoremap ) <esc>:call ClosePair(')')<CR>a
+    inoremap ] <esc>:call ClosePair(']')<CR>a
+    inoremap } <esc>:call CloseBrachet()<CR>a
+    inoremap ' <esc>:call QuoteDelim(''')<CR>a
+    inoremap " <esc>:call QuoteDelim('"')<CR>a
 
     function ClosePair(char)
-        if getline('.')[col('.' - 1) == a:char]
+        if getline('.')[col('.' - 1) ==# a:char]
             return "\<Right>"
         else
             return a:char
@@ -221,9 +242,9 @@
     function QuoteDelim(char)
         let line = getline('.')
         let col = col('.')
-        if line[col - 2] == "\\"
+        if line[col - 2] ==# "\\"
             return a:char
-        elseif line[col - 1] == a:char
+        elseif line[col - 1] ==# a:char
             return "\<Right>"
         else
             return a:char.a:char."\<esc>i"
