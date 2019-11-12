@@ -1,2 +1,2 @@
-# .vimrc_backup
-my .vimrc specific for c++
+# backups
+personal config files
