@@ -7,11 +7,17 @@
 " color theme setting------------   {{{
     " it is installed by trizen -S vim-badwolf-git
     colorscheme badwolf 
+    
 "" }}}
 
 " type mistake repair------------   {{{
+    iab mian int<space>main(int<space>argc,<space>char*<space>argv[])<esc>o<esc>0i
+    iab mina int<space>main(int<space>argc,<space>char*<space>argv[])<esc>o<esc>0i
+    iab main int<space>main(int<space>argc,<space>char*<space>argv[])<esc>o<esc>0i
+    iab mani int<space>main(int<space>argc,<space>char*<space>argv[])<esc>o<esc>0i
 
     iab cla class<CR>{public:<CR><CR>private:}<esc>jA;<esc>kkkkkA
+    iab cal class<CR>{public:<CR><CR>private:}<esc>jA;<esc>kkkkkA
     
     iab str struct<CR>{}<esc>jA;<esc>kkkA
 
@@ -172,6 +178,8 @@
     " esc maybe too far, hope jk will not be used in future
     inoremap jk <esc>
     vnoremap jk <esc>
+    inoremap <esc> <nop>
+    vnoremap <esc> <nop>
 
     " move to the beginning of the line
     nnoremap B ^
@@ -184,8 +192,6 @@
 "" }}}
 
 " nnoremaps------------   {{{
-    " this is installed by trizen -S vim-gundo
-    nnoremap <leader>u :GundoToggle<CR>
 
     nnoremap <leader>m :make<CR>
 
@@ -220,8 +226,8 @@
     inoremap ) <esc>:call ClosePair(')')<CR>a
     inoremap ] <esc>:call ClosePair(']')<CR>a
     inoremap } <esc>:call CloseBrachet()<CR>a
-    inoremap ' <esc>:call QuoteDelim(''')<CR>a
-    inoremap " <esc>:call QuoteDelim('"')<CR>a
+"    idnoremap ' <esc>:call QuoteDelim(''')<CR>a
+"   ndoremap " <esc>:call QuoteDelim('"')<CR>a
 
     function ClosePair(char)
         if getline('.')[col('.' - 1) ==# a:char]
@@ -251,5 +257,3 @@
         endif
     endfunction
 "" }}}
-
-
