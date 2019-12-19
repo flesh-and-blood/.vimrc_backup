@@ -97,11 +97,18 @@ alias np='nano -w PKGBUILD'
 alias more=less
 
 # alias defined by Yang Shu Xuan 
+alias exri=exit
+alias exti=exit
+
+alias mmake=make
+alias maek=make
+
 alias clae=clear
 alias clea=clear
 alias cler=clear
 alias clera=clear
 alias lear=clear
+alias cear=clear
 alias clear=clear
 alias clear4=clear 
 alias cle4ar=clear
