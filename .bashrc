@@ -102,6 +102,11 @@ alias exti=exit
 
 alias mmake=make
 alias maek=make
+alias amke=make
+alias akeml=make
+alias akem=make
+alias amek=make
+alias kmea=make
 
 alias clae=clear
 alias clea=clear
