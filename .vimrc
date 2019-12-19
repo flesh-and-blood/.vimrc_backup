@@ -95,6 +95,8 @@
 
     set shiftround
 
+    set wildmode=full
+
     set tabstop=4
 
     set softtabstop=4
@@ -178,6 +180,8 @@
     " esc maybe too far, hope jk will not be used in future
     inoremap jk <esc>
     vnoremap jk <esc>
+    inoremap kj <esc>
+    vnoremap kj <esc>
     inoremap <esc> <nop>
     vnoremap <esc> <nop>
 
