@@ -96,59 +96,6 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 
-# alias defined by Yang Shu Xuan 
-alias exri=exit
-alias exti=exit
-
-alias mmake=make
-alias maek=make
-alias amke=make
-alias akeml=make
-alias akem=make
-alias amek=make
-alias kmea=make
-
-alias clae=clear
-alias clea=clear
-alias cler=clear
-alias clera=clear
-alias lear=clear
-alias cear=clear
-alias clear=clear
-alias clear4=clear 
-alias cle4ar=clear
-alias clera4=clear
-alias cl4ear=clear
-alias cler4a=clear
-alias clea3r4=clear
-alias clea3r=clear
-alias clear3=clear
-alias cle4ra=clear
-alias cla3er=clear
-alias cle3ar=clear
-alias cl3ea4=clear
-alias cle4ar=clear
-alias cldear=clear
-alias cledar=clear
-alias cleadr=clear
-alias clea4r=clear
-alias cliear=clear
-alias clwar=clear
-alias clewar=clear
-alias cleawr=clear
-alias clweaar=clear
-
-alias sl=ls
-
-alias up='trizen -Syu'
-alias upo='trizen -Syu'
-alias uop='trizen -Syu'
-alias tf='trizen -Ss'
-alias ts='trizen -S'
-alias vi=vim
-alias ivm=vim
-alias iv=vim
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -191,5 +138,19 @@ ex ()
   fi
 }
 
-# better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
+alias vim='vim -S Session.vim'
+
+alias e='exa --color always'
+alias sl='exa --color always'
+alias ls='exa --color always'
+
+alias mk='make'
+alias mt='make tags'
+alias mc='make clean'
+
+alias up='trizen -Syu'
+alias tf='trizen -Ss'
+alias ts='trizen -S'
+alias tr='trizen -Rc'
+
+alias cl='clear'
