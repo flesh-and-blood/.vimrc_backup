@@ -1,7 +1,8 @@
 syntax enable
-colorscheme zenburn
+colorscheme leo
 
 iab tmep temp
+iab vodi void
 
 let maplocalleader=";"
 
@@ -14,7 +15,6 @@ set tabstop=4 softtabstop=4 shiftwidth=4
 set number relativenumber cursorline ruler
 
 set incsearch hlsearch
-nnoremap nh :nohlsearch<cr>
 
 set foldenable foldmethod=syntax
 nnoremap <space> za

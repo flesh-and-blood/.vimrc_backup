@@ -145,8 +145,8 @@ alias sl='exa --color always'
 alias ls='exa --color always'
 
 alias mk='make'
-alias mt='make tags'
-alias mc='make clean'
+
+alias re='reboot'
 
 alias up='trizen -Syu'
 alias tf='trizen -Ss'
@@ -154,3 +154,5 @@ alias ts='trizen -S'
 alias tr='trizen -Rc'
 
 alias cl='clear'
+
+alias q='exit'
