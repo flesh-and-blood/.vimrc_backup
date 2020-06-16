@@ -1,5 +1,5 @@
 syntax enable
-colorscheme leo
+colorscheme badwolf
 
 iab tmep temp
 iab vodi void
