@@ -83,6 +83,7 @@ endfunction
 
 nnoremap <localleader>g :set operatorfunc=GrepOperator<cr>g@
 vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
+
 function! GrepOperator(type)
     if a:type ==# 'v'
         normal! `<v`>y

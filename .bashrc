@@ -113,6 +113,8 @@ shopt -s expand_aliases
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
+shopt -s autocd
+
 #
 # # ex - archive extractor
 # # usage: ex <file>
@@ -145,6 +147,7 @@ alias sl='exa --color always'
 alias ls='exa --color always'
 
 alias mk='make'
+alias amke='make'
 
 alias re='reboot'
 
@@ -154,5 +157,14 @@ alias ts='trizen -S'
 alias tr='trizen -Rc'
 
 alias cl='clear'
-
+alias shut='shutdown 0'
 alias q='exit'
+
+alias gga='git add'
+alias ggc='git commit -m'
+alias ggp='git push'
+alias pgg='git pull'
+alias ggs='git status'
+alias ggd='git difftool'
+alias ggm='git mergetool'
+alias ggl='git lg'  # lg 的配置在 .gitconfig 中
