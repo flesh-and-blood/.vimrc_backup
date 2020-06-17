@@ -47,7 +47,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax enable
-colorscheme badwolf
+colorscheme gruvbox
 
 iab tmep temp
 iab vodi void
