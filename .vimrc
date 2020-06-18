@@ -1,51 +1,20 @@
-" copyed from https://github.com/VundleVim/Vundle.vim#quick-start
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
+" 从 https://github.com/VundleVim/Vundle.vim#quick-start 抄过来的
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'jacoborus/tender.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+call vundle#end()    
+filetype plugin indent on
+
 
 syntax enable
 colorscheme gruvbox
@@ -107,7 +76,7 @@ augroup cplusplus
     autocmd BufNewFile *.hpp :write
     autocmd BufNewFile *.h :write
     autocmd BufNewFile makefile :write
-    autocmd filetype cpp iab 3inc #include <><left>
+    autocmd filetype cpp iab 3inc #include
     autocmd filetype cpp iab 3def #define
     autocmd filetype cpp iab 3ifn #ifndef
     autocmd filetype cpp iab 3ifd #ifdef
@@ -120,7 +89,7 @@ augroup cplusplus
     autocmd filetype cpp inoremap fi<space> if ()<left>
     autocmd filetype cpp inoremap for<space> for ()<left>
     autocmd filetype cpp inoremap fro<space> for ()<left>
-    autocmd filetype cpp inoremap whi<space> while ()<left>
+    autocmd filetype cpp inoremap whi<space> while ()<l eft>
     autocmd filetype cpp inoremap swi<space> switch ()<left>
     autocmd filetype cpp inoremap cla<space> class<space>
     autocmd filetype cpp inoremap str<space> struct<space>
