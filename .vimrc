@@ -2,14 +2,16 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
 
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'jacoborus/tender.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 call vundle#end()    
