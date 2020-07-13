@@ -7,10 +7,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'jacoborus/tender.vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
-
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 call vundle#end()    
 filetype plugin indent on
@@ -18,7 +18,8 @@ filetype plugin indent on
 
 syntax enable
 colorscheme gruvbox
-
+let g:gruvbox_contrast_dark='dark'
+	
 iab tmep temp
 iab vodi void
 
