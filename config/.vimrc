@@ -5,20 +5,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'jacoborus/tender.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-<<<<<<< HEAD:config/.vimrc
-=======
-Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-
->>>>>>> a7fd5de26b9bcf0fef6d0ef527c3dfd6e92d94e9:.vimrc
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plugin 'git://git.wincent.com/command-t.git'
+
 call vundle#end()    
+
 filetype plugin indent on
 
 
