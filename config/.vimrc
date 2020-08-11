@@ -93,7 +93,7 @@ augroup cplusplus
     autocmd filetype cpp inoremap fi<space> if ()<left>
     autocmd filetype cpp inoremap for<space> for ()<left>
     autocmd filetype cpp inoremap fro<space> for ()<left>
-    autocmd filetype cpp inoremap whi<space> while ()<l eft>
+    autocmd filetype cpp inoremap whi<space> while ()<left>
     autocmd filetype cpp inoremap swi<space> switch ()<left>
     autocmd filetype cpp inoremap cla<space> class<space>
     autocmd filetype cpp inoremap str<space> struct<space>
