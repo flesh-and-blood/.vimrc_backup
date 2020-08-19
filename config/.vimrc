@@ -8,7 +8,6 @@ call vundle#begin()
 Plugin 'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'jacoborus/tender.vim'
-Plugin 'valloric/youcompleteme'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
