@@ -7,4 +7,4 @@ cp -r .bashrc ~/
 cp -r .vimrc ~/
 cp -r .pam_environment ~/
 cp -r .bash_profile ~/
-cp -r .profire ~/
+cp -r .profile ~/
