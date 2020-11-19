@@ -76,11 +76,12 @@ nnoremap <localleader>( viw<esc>a)<esc>bi(<esc>lel
 augroup cplusplus
     autocmd!
 
-    autocmd BufNewFile *.cpp :write
-    autocmd BufNewFile *.cc :write
-    autocmd BufNewFile *.hpp :write
-    autocmd BufNewFile *.h :write
-    autocmd BufNewFile makefile :write
+"    autocmd BufNewFile *.cpp :write
+"    autocmd BufNewFile *.cc :write
+"    autocmd BufNewFile *.hpp :write
+"    autocmd BufNewFile *.h :write
+"    autocmd BufNewFile makefile :write
+
     autocmd filetype cpp iab 3inc #include
     autocmd filetype cpp iab 3def #define
     autocmd filetype cpp iab 3ifn #ifndef
@@ -90,8 +91,9 @@ augroup cplusplus
     autocmd filetype cpp nnoremap <localleader>m :make<cr>
     autocmd filetype cpp inoremap tem<space> template <><left>
     autocmd filetype cpp inoremap typ<space> typename
-    autocmd filetype cpp inoremap nul<space> nullptr
-    autocmd filetype cpp inoremap del<space> delete
+    autocmd filetype cpp inoremap nul<space> nullptr<space>
+    autocmd filetype cpp inoremap del<space> delete<space>
+    autocmd filetype cpp inoremap ret<space> return<space>
     autocmd filetype cpp inoremap if<space> if ()<left>
     autocmd filetype cpp inoremap fi<space> if ()<left>
     autocmd filetype cpp inoremap for<space> for ()<left>
@@ -102,6 +104,7 @@ augroup cplusplus
     autocmd filetype cpp inoremap str<space> struct<space>
     autocmd filetype cpp inoremap .<space> ->
     autocmd filetype cpp nnoremap <localleader>/ 0i//<esc>
+
     autocmd filetype cpp nmap <localleader>s :w<cr>:call SwitchSourceHeaderCplusplus()<cr>
 
 augroup END
