@@ -148,6 +148,7 @@ alias ls='exa --color always'
 
 alias mk='make'
 alias amke='make'
+alias cmk='cmake'
 
 alias re='reboot'
 
@@ -156,6 +157,7 @@ alias tf='trizen -Ss'
 alias ts='trizen -S'
 alias tr='trizen -Rc'
 
+alias qtc='/home/codea/Documents/QT/Tools/QtCreator/bin/qtcreator'
 alias cl='clear'
 alias shut='shutdown 0'
 alias q='exit'
