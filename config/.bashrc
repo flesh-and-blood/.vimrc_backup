@@ -140,6 +140,10 @@ ex ()
   fi
 }
 
+if [ -d "$HOME/Documents/usr/bin" ] ; then
+    PATH="$HOME/Documents/usr/bin:$PATH"
+fi
+
 alias vim='vim -S Session.vim'
 
 alias e='exa --color always'
