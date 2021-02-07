@@ -15,6 +15,8 @@ call vundle#begin()
 
 call vundle#end()    
 
+let g:AutoPairsFlyMode = 1
+
 filetype plugin indent on
 syntax enable
 
@@ -64,15 +66,15 @@ nnoremap <localleader>[ viw<esc>a]<esc>bi[<esc>lel
 vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
 nnoremap <localleader>g :set operatorfunc=GrepOperator<cr>g@
 function! GrepOperator(type)
-    if a:type ==# 'v'
-        normal! `<v`>y
-    elseif a:type ==# 'char'
-        normal! `[v`]y
-    else
-        return
-    endif
-        silent execute "grep! -R " . shellescape(@@) . " ."
-        copen        
+  if a:type ==# 'v'
+      normal! `<v`>y
+  elseif a:type ==# 'char'
+      normal! `[v`]y
+  else
+      return
+  endif
+      silent execute "grep! -R " . shellescape(@@) . " ."
+      copen        
 endfunction
 
 augroup cplusplus
@@ -91,19 +93,19 @@ augroup cplusplus
   autocmd filetype cpp iab 3ifd #ifdef
   autocmd filetype cpp iab 3end #endif
 
-  autocmd filetype cpp iab mia int<space>main(int<space>argc,<space>char*<space>argv[])
-  autocmd filetype cpp iab mai int<space>main(int<space>argc,<space>char*<space>argv[])
+  autocmd filetype cpp iab mia <bs>int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr>
+  autocmd filetype cpp iab mai <bs>int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr>
 
   autocmd filetype cpp iab oper operator
   autocmd filetype cpp iab tmep temp
   autocmd filetype cpp iab vodi void
   autocmd filetype cpp iab cahr char
+
+  autocmd filetype cpp iab pub public:<esc><<
+  autocmd filetype cpp iab pri private:<esc><<
   
   autocmd filetype cpp nnoremap <localleader>m :make<cr>
 
-  autocmd filetype cpp inoremap pub: public:<esc><<
-  autocmd filetype cpp inoremap pri: private:<esc><<
-  
   autocmd filetype cpp inoremap tem<space>  template <><left>
   autocmd filetype cpp inoremap typ<space>  typename
   autocmd filetype cpp inoremap nul<space>  nullptr<space>
@@ -132,5 +134,22 @@ augroup cplusplus
         find %:t:r.cpp
       endif
     endfunction
+
+augroup END
+
+augroup CMakeLists
+  autocmd!
+
+  autocmd filetype cmake iab ver VERSION
+
+  autocmd filetype cmake iab pub PUBLIC
+  autocmd filetype cmake iab pri PRIVATE
+
+" hinc stands for header include
+  autocmd filetype cmake inoremap hinc<space>   target_include_directories()<left>
+  autocmd filetype cmake inoremap conff<space>  configure_file()<left>
+  autocmd filetype cmake inoremap out<space>    add_executable()<left>
+
+  autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
 
 augroup END

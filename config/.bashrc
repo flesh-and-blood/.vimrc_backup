@@ -153,6 +153,7 @@ alias ls='exa --color always'
 alias mk='make'
 alias amke='make'
 alias cmk='cmake'
+alias cmki='touch CMakeLists.txt'
 alias cmkj='cmake -G Ninja .. && ninja'
 
 alias re='reboot'
