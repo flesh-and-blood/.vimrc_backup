@@ -91,6 +91,7 @@ augroup cplusplus
   autocmd filetype cpp iab 3ifd #ifdef
   autocmd filetype cpp iab 3end #endif
 
+  autocmd filetype cpp iab mia int<space>main(int<space>argc,<space>char*<space>argv[])
   autocmd filetype cpp iab mai int<space>main(int<space>argc,<space>char*<space>argv[])
 
   autocmd filetype cpp iab oper operator
