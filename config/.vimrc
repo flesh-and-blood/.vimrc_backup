@@ -1,7 +1,5 @@
-" 从 https://github.com/VundleVim/Vundle.vim#quick-start 抄过来的
-set nocompatible
-
-filetype off
+filetype plugin indent on
+syntax enable
 
 call vundle#begin()
   Plugin 'tpope/vim-fugitive'
@@ -15,66 +13,71 @@ call vundle#begin()
 
 call vundle#end()    
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='dark'
-let g:AutoPairsFlyMode = 1
+" theme setting
+  colorscheme gruvbox
+  let g:gruvbox_contrast_dark='dark'
 
-filetype plugin indent on
-syntax enable
+" common settting
+  let g:AutoPairsFlyMode = 1
+  let maplocalleader=";"
+  set         wrap                  encoding=utf-8              nocompatible
+  set         laststatus=2          statusline=%F:\ %l/%L
+  set         autoindent            smartindent
+  set         showcmd               showmatch                   wildmenu
+  set         tabstop=4             softtabstop=4               shiftwidth=4
+  set         number                relativenumber 
+  set         cursorline            ruler
+  set         incsearch             hlsearch
+  set         foldenable            foldmethod=syntax
 
-let maplocalleader=";"
+" common mapping
+  nnoremap <space> za
+  inoremap jk <esc>
+  vnoremap jk <esc>
 
-set 
-  wrap                  encoding=utf-8
-  laststatus=2          statusline=%F:\ %l/%L
-  autoindent            smartindent
-  showcmd               showmatch                   wildmenu
-  tabstop=4             softtabstop=4               shiftwidth=4
-  number                relativenumber 
-  cursorline            ruler
-  incsearch             hlsearch
-  foldenable            foldmethod=syntax
+" arduino-ctags leader-d => definition / leader-t => return
+  nnoremap <localleader>d :mksession!<cr>:w<cr><c-]>zz
+  nnoremap <localleader>t :mksession!<cr>:w<cr><c-t>zz
 
-nnoremap <space> za
+" jumping between splits
+  nnoremap <localleader>h <c-w>h
+  nnoremap <localleader>j <c-w>j
+  nnoremap <localleader>k <c-w>k
+  nnoremap <localleader>l <c-w>l
 
-inoremap jk <esc>
-vnoremap jk <esc>
+" auto make session when write and quit
+  nnoremap <localleader>w :mksession!<cr>:w<cr>
+  nnoremap <localleader>q :mksession!<cr>:w<cr>:qall<cr>
 
-nnoremap <localleader>d :mksession!<cr>:w<cr><c-]>zz
-nnoremap <localleader>t :mksession!<cr>:w<cr><c-t>zz
+" n => next / l => last of current line
+  onoremap in( :<c-u>normal! f(vi(<cr>
+  onoremap in[ :<c-u>normal! f(vi[<cr>
+  onoremap in{ :<c-u>normal! f(vi{<cr>
+  onoremap il( :<c-u>normal! F)vi(<cr>
+  onoremap il[ :<c-u>normal! F]vi[<cr>
+  onoremap il{ :<c-u>normal! f}vi{<cr>
 
-nnoremap <localleader>h <c-w>h
-nnoremap <localleader>j <c-w>j
-nnoremap <localleader>k <c-w>k
-nnoremap <localleader>l <c-w>l
+" add surround
+  nnoremap <localleader>' viw<esc>a'<esc>bi'<esc>lel
+  nnoremap <localleader>" viw<esc>a"<esc>bi"<esc>lel
+  nnoremap <localleader>( viw<esc>a)<esc>bi(<esc>lel
+  nnoremap <localleader>[ viw<esc>a]<esc>bi[<esc>lel
+  nnoremap <localleader>{ viw<esc>a}<esc>bi{<esc>lel
 
-nnoremap <localleader>w :mksession!<cr>:w<cr>
-nnoremap <localleader>q :mksession!<cr>:w<cr>:qall<cr>
-
-onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap in[ :<c-u>normal! f(vi[<cr>
-onoremap in{ :<c-u>normal! f(vi{<cr>
-onoremap il( :<c-u>normal! F)vi(<cr>
-onoremap il[ :<c-u>normal! F]vi[<cr>
-onoremap il{ :<c-u>normal! f}vi{<cr>
-
-nnoremap <localleader>" viw<esc>a"<esc>bi"<esc>lel
-nnoremap <localleader>( viw<esc>a)<esc>bi(<esc>lel
-nnoremap <localleader>[ viw<esc>a]<esc>bi[<esc>lel
-
-vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
-nnoremap <localleader>g :set operatorfunc=GrepOperator<cr>g@
-function! GrepOperator(type)
-  if a:type ==# 'v'
-      normal! `<v`>y
-  elseif a:type ==# 'char'
-      normal! `[v`]y
-  else
-      return
-  endif
-      silent execute "grep! -R " . shellescape(@@) . " ."
-      copen        
-endfunction
+" grep inner vim
+  vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
+  nnoremap <localleader>g :set operatorfunc=GrepOperator<cr>g@
+  function! GrepOperator(type)
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+        silent execute "grep! -R " . shellescape(@@) . " ."
+        copen        
+  endfunction
 
 augroup cplusplus
   autocmd!
@@ -144,15 +147,14 @@ augroup CMakeLists
   autocmd filetype cmake iab pri PRIVATE
   autocmd filetype cmake iab std CMAKE_CXX_STANDARD
 
-  autocmd filetype cmake inoremap <localleader>pbd PROJECT_BINARY_DIR
-
+  autocmd filetype cmake inoremap <localleader>pbd  PROJECT_BINARY_DIR
   " hinc stands for header include
-  autocmd filetype cmake inoremap hinc<space>   target_include_directories()<left>
-  autocmd filetype cmake inoremap conf<space>   configure_file()<left>
+  autocmd filetype cmake inoremap hinc<space>       target_include_directories()<left>
+  autocmd filetype cmake inoremap conf<space>       configure_file()<left>
   " especially for c++ project
-  autocmd filetype cmake inoremap out<space>    add_executable()<left>
-  autocmd filetype cmake inoremap pro<space>    project()<left>
-  
-  autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
+  autocmd filetype cmake inoremap out<space>        add_executable()<left>
+  autocmd filetype cmake inoremap pro<space>        project()<left>
+
+  autocmd filetype cmake nnoremap <localleader>/    0i#<esc>
 
 augroup END
