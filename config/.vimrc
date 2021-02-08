@@ -15,26 +15,25 @@ call vundle#begin()
 
 call vundle#end()    
 
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='dark'
 let g:AutoPairsFlyMode = 1
 
 filetype plugin indent on
 syntax enable
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='dark'
-
 let maplocalleader=";"
 
-set wrap
-set laststatus=2 statusline=%F:\ %l/%L
-set encoding=utf-8
-set autoindent smartindent
-set showcmd showmatch wildmenu
-set tabstop=4 softtabstop=4 shiftwidth=4
-set number relativenumber cursorline ruler
-
-set incsearch hlsearch
-set foldenable foldmethod=syntax
+set 
+  wrap                  encoding=utf-8
+  laststatus=2          statusline=%F:\ %l/%L
+  autoindent            smartindent
+  showcmd               showmatch                   wildmenu
+  tabstop=4             softtabstop=4               shiftwidth=4
+  number                relativenumber 
+  cursorline            ruler
+  incsearch             hlsearch
+  foldenable            foldmethod=syntax
 
 nnoremap <space> za
 
@@ -93,8 +92,8 @@ augroup cplusplus
   autocmd filetype cpp iab 3ifd #ifdef
   autocmd filetype cpp iab 3end #endif
 
-  autocmd filetype cpp iab mia <bs>int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr>
-  autocmd filetype cpp iab mai <bs>int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr>
+  autocmd filetype cpp iab mia int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{
+  autocmd filetype cpp iab mai int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{
 
   autocmd filetype cpp iab oper operator
   autocmd filetype cpp iab tmep temp
@@ -141,15 +140,19 @@ augroup CMakeLists
   autocmd!
 
   autocmd filetype cmake iab ver VERSION
-
   autocmd filetype cmake iab pub PUBLIC
   autocmd filetype cmake iab pri PRIVATE
+  autocmd filetype cmake iab std CMAKE_CXX_STANDARD
 
-" hinc stands for header include
+  autocmd filetype cmake inoremap <localleader>pbd PROJECT_BINARY_DIR
+
+  " hinc stands for header include
   autocmd filetype cmake inoremap hinc<space>   target_include_directories()<left>
-  autocmd filetype cmake inoremap conff<space>  configure_file()<left>
+  autocmd filetype cmake inoremap conf<space>   configure_file()<left>
+  " especially for c++ project
   autocmd filetype cmake inoremap out<space>    add_executable()<left>
-
+  autocmd filetype cmake inoremap pro<space>    project()<left>
+  
   autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
 
 augroup END

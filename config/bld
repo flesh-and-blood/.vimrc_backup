@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+
+if [ -d "$PWD/build" ] ; then
+    cd build && cmake -G Ninja .. && ninja && cd ..
+else
+    mkdir build && cd build && cmake -G Ninja .. && ninja && cd ..
+fi
