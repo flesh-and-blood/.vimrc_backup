@@ -145,6 +145,7 @@ if [ -d "$HOME/Documents/usr/bin" ] ; then
 fi
 
 alias vim='vim -S Session.vim'
+alias ctags='arduino-ctags'
 
 alias e='exa --color always'
 alias sl='exa --color always'
