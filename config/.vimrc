@@ -5,7 +5,7 @@ call vundle#begin()
   Plugin 'tpope/vim-fugitive'
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'jacoborus/tender.vim'
-  Plugin 'jiangmiao/auto-pairs'
+  Plugin 'raimondi/delimitmate'
   Plugin 'octol/vim-cpp-enhanced-highlight'
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
   Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
@@ -79,6 +79,11 @@ call vundle#end()
         copen        
   endfunction
 
+function! EatChar()
+  let dummy = getchar(0)
+  return ''
+endfunction
+
 augroup cplusplus
   autocmd!
 
@@ -95,33 +100,30 @@ augroup cplusplus
   autocmd filetype cpp iab 3ifd #ifdef
   autocmd filetype cpp iab 3end #endif
 
-  autocmd filetype cpp iab mia int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{
-  autocmd filetype cpp iab mai int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{
+  autocmd filetype cpp iab mia int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab mai int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
 
+  autocmd filetype cpp iab pri private:<esc><<
+  autocmd filetype cpp iab pub public:<esc><<
+
+  autocmd filetype cpp iab typ  typename
   autocmd filetype cpp iab oper operator
+  autocmd filetype cpp iab nul  nullptr
+  autocmd filetype cpp iab del  delete
+  autocmd filetype cpp iab inl  inline
+  autocmd filetype cpp iab ret  return
+  autocmd filetype cpp iab str  struct
+  autocmd filetype cpp iab cla  class
   autocmd filetype cpp iab tmep temp
   autocmd filetype cpp iab vodi void
-  autocmd filetype cpp iab cahr char
 
-  autocmd filetype cpp iab pub public:<esc><<
-  autocmd filetype cpp iab pri private:<esc><<
-  
-  autocmd filetype cpp nnoremap <localleader>m :make<cr>
-
-  autocmd filetype cpp inoremap tem<space>  template <><left>
-  autocmd filetype cpp inoremap typ<space>  typename
-  autocmd filetype cpp inoremap nul<space>  nullptr<space>
-  autocmd filetype cpp inoremap del<space>  delete<space>
-  autocmd filetype cpp inoremap ret<space>  return<space>
-
-  autocmd filetype cpp inoremap if<space>   if ()<left>
-  autocmd filetype cpp inoremap fi<space>   if ()<left>
-  autocmd filetype cpp inoremap for<space>  for ()<left>
-  autocmd filetype cpp inoremap fro<space>  for ()<left>
-  autocmd filetype cpp inoremap whi<space>  while ()<left>
-  autocmd filetype cpp inoremap swi<space>  switch ()<left>
-  autocmd filetype cpp inoremap cla<space>  class<space>
-  autocmd filetype cpp inoremap str<space>  struct<space>
+  autocmd filetype cpp iab tem  template<space><><left><c-r>=EatChar()<cr>
+  autocmd filetype cpp iab swi  switch ()<left><c-r>=EatChar()<cr>
+  autocmd filetype cpp iab whi  while ()<left><c-r>=EatChar()<cr>
+  autocmd filetype cpp iab for  for ()<left><c-r>=EatChar()<cr>
+  autocmd filetype cpp iab fro  for ()<left><c-r>=EatChar()<cr>
+  autocmd filetype cpp iab if   if ()<left><c-r>=EatChar()<cr>
+  autocmd filetype cpp iab fi   if ()<left><c-r>=EatChar()<cr>
   
   autocmd filetype cpp inoremap .<space> ->
   
@@ -142,19 +144,28 @@ augroup END
 augroup CMakeLists
   autocmd!
 
-  autocmd filetype cmake iab ver VERSION
-  autocmd filetype cmake iab pub PUBLIC
-  autocmd filetype cmake iab pri PRIVATE
-  autocmd filetype cmake iab std CMAKE_CXX_STANDARD
-
-  autocmd filetype cmake inoremap <localleader>pbd  PROJECT_BINARY_DIR
-  " hinc stands for header include
-  autocmd filetype cmake inoremap hinc<space>       target_include_directories()<left>
-  autocmd filetype cmake inoremap conf<space>       configure_file()<left>
-  " especially for c++ project
-  autocmd filetype cmake inoremap out<space>        add_executable()<left>
-  autocmd filetype cmake inoremap pro<space>        project()<left>
-
   autocmd filetype cmake nnoremap <localleader>/    0i#<esc>
+
+  autocmd filetype cmake iab std CMAKE_CXX_STANDARD
+  autocmd filetype cmake iab pbd PROJECT_BINARY_DIR
+  autocmd filetype cmake iab psd PROJECT_SOURCE_DIR
+  autocmd filetype cmake iab ver VERSION
+  autocmd filetype cmake iab pri PRIVATE
+  autocmd filetype cmake iab pub PUBLIC
+  autocmd filetype cmake iab sha SHARED
+  autocmd filetype cmake iab sta STATIC
+
+  " hinc stands for header include
+  autocmd filetype cmake iab hinc       target_include_directories()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab lk         target_link_libraries()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab conf       configure_file()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab pro        project()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab set        set()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab $          ${}<left><c-r>=EatChar()<cr>
+  
+  autocmd filetype cmake iab ad         add_dependencies()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab am         add_definitions()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab ao         add_executable()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab al         add_library()<left><c-r>=EatChar()<cr>
 
 augroup END
