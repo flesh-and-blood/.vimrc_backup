@@ -162,20 +162,26 @@ augroup CMakeLists
 
   autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
 
-  autocmd filetype cmake iab std CMAKE_CXX_STANDARD
-  autocmd filetype cmake iab ver VERSION
-  autocmd filetype cmake iab pri PRIVATE
-  autocmd filetype cmake iab pub PUBLIC
-  autocmd filetype cmake iab sha SHARED
-  autocmd filetype cmake iab sta STATIC
-  autocmd filetype cmake iab app APPEND
+  autocmd filetype cmake iab std        CMAKE_CXX_STANDARD
+  autocmd filetype cmake iab des        DESTINATION
+  autocmd filetype cmake iab inte       INTERFACE
+  autocmd filetype cmake iab tag        TARGETS
+  autocmd filetype cmake iab ver        VERSION
+  autocmd filetype cmake iab pri        PRIVATE
+  autocmd filetype cmake iab pub        PUBLIC
+  autocmd filetype cmake iab sha        SHARED
+  autocmd filetype cmake iab sta        STATIC
+  autocmd filetype cmake iab app        APPEND
+  autocmd filetype cmake iab file       FILES
 
-  autocmd filetype cmake iab pbd PROJECT_BINARY_DIR<c-r>=EatChar()<cr>
-  autocmd filetype cmake iab psd PROJECT_SOURCE_DIR<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab csd        CMAKE_CURRENT_SOURCE_DIR<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab psd        PROJECT_SOURCE_DIR<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab pbd        PROJECT_BINARY_DIR<c-r>=EatChar()<cr>
 
   " hi stands for header include
   autocmd filetype cmake iab hi         target_include_directories()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab lk         target_link_libraries()<left><c-r>=EatChar()<cr>
+
   autocmd filetype cmake iab conf       configure_file()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab pro        project()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab op         option()<left><c-r>=EatChar()<cr>
@@ -189,6 +195,10 @@ augroup CMakeLists
   autocmd filetype cmake iab ao         add_executable()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab al         add_library()<left><c-r>=EatChar()<cr>
 
-  autocmd filetype cmake iab if         if<space>()<cr>endif()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab func         function()<cr>endfunction()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab for          foreach()<cr>endforeach()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab fro          foreach()<cr>endforeach()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab if         if()<cr>endif()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab else       else()<cr><c-r>=EatChar()<cr>
 
 augroup END
