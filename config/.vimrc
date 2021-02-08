@@ -2,14 +2,15 @@ filetype plugin indent on
 syntax enable
 
 call vundle#begin()
-  Plugin 'tpope/vim-fugitive'
+  Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+  Plugin 'git://git.wincent.com/command-t.git'
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+  Plugin 'octol/vim-cpp-enhanced-highlight'
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'jacoborus/tender.vim'
   Plugin 'raimondi/delimitmate'
-  Plugin 'octol/vim-cpp-enhanced-highlight'
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-  Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-  Plugin 'git://git.wincent.com/command-t.git'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'tpope/vim-fugitive'
 
 call vundle#end()    
 
@@ -35,6 +36,23 @@ call vundle#end()
   inoremap jk <esc>
   vnoremap jk <esc>
 
+" nerdtree
+  nnoremap <localleader>q :NERDTreeClose<cr>:mksession!<cr>:w<cr>:qall<cr>
+  nnoremap <localleader>w :NERDTreeClose<cr>:mksession!<cr>:w<cr>
+  nnoremap <localleader>e :NERDTreeToggle<cr>
+  nnoremap <localleader>n :NERDTreeFocus<cr>
+
+  augroup nerdtree
+    autocmd!
+    
+    " Exit Vim if NERDTree is the only window left.
+    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+    
+    " If another buffer tries to replace NERDTree, put in the other window, and bring back NERDTree.
+    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+  augroup END
+
 " arduino-ctags leader-d => definition / leader-t => return
   nnoremap <localleader>d :mksession!<cr>:w<cr><c-]>zz
   nnoremap <localleader>t :mksession!<cr>:w<cr><c-t>zz
@@ -45,9 +63,6 @@ call vundle#end()
   nnoremap <localleader>k <c-w>k
   nnoremap <localleader>l <c-w>l
 
-" auto make session when write and quit
-  nnoremap <localleader>w :mksession!<cr>:w<cr>
-  nnoremap <localleader>q :mksession!<cr>:w<cr>:qall<cr>
 
 " n => next / l => last of current line
   onoremap in( :<c-u>normal! f(vi(<cr>
@@ -111,6 +126,7 @@ augroup cplusplus
   autocmd filetype cpp iab nul  nullptr
   autocmd filetype cpp iab del  delete
   autocmd filetype cpp iab inl  inline
+  autocmd filetype cpp iab iln  inline
   autocmd filetype cpp iab ret  return
   autocmd filetype cpp iab str  struct
   autocmd filetype cpp iab cla  class
@@ -144,28 +160,35 @@ augroup END
 augroup CMakeLists
   autocmd!
 
-  autocmd filetype cmake nnoremap <localleader>/    0i#<esc>
+  autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
 
   autocmd filetype cmake iab std CMAKE_CXX_STANDARD
-  autocmd filetype cmake iab pbd PROJECT_BINARY_DIR
-  autocmd filetype cmake iab psd PROJECT_SOURCE_DIR
   autocmd filetype cmake iab ver VERSION
   autocmd filetype cmake iab pri PRIVATE
   autocmd filetype cmake iab pub PUBLIC
   autocmd filetype cmake iab sha SHARED
   autocmd filetype cmake iab sta STATIC
+  autocmd filetype cmake iab app APPEND
 
-  " hinc stands for header include
-  autocmd filetype cmake iab hinc       target_include_directories()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab pbd PROJECT_BINARY_DIR<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab psd PROJECT_SOURCE_DIR<c-r>=EatChar()<cr>
+
+  " hi stands for header include
+  autocmd filetype cmake iab hi         target_include_directories()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab lk         target_link_libraries()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab conf       configure_file()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab pro        project()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab op         option()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab li         list()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab set        set()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab $          ${}<left><c-r>=EatChar()<cr>
   
+  autocmd filetype cmake iab as         add_subdirectory()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab ad         add_dependencies()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab am         add_definitions()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab ao         add_executable()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab al         add_library()<left><c-r>=EatChar()<cr>
+
+  autocmd filetype cmake iab if         if<space>()<cr>endif()<esc>k0f(a<c-r>=EatChar()<cr>
 
 augroup END

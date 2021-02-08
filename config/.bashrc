@@ -154,6 +154,7 @@ alias ls='exa --color always'
 alias mk='make'
 alias amke='make'
 alias cmk='cmake'
+alias ccmk='ccmake'
 alias cmki='touch CMakeLists.txt'
 alias cmkj='cmake -G Ninja .. && ninja'
 
