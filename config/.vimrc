@@ -21,10 +21,10 @@ call vundle#end()
   let g:AutoPairsFlyMode = 1
   let maplocalleader=";"
   set         wrap                  encoding=utf-8              nocompatible
-  set         laststatus=2          statusline=%F:\ %l/%L
-  set         autoindent            smartindent
   set         showcmd               showmatch                   wildmenu
   set         tabstop=4             softtabstop=4               shiftwidth=4
+  set         laststatus=2          statusline=%F:\ %l/%L
+  set         autoindent            smartindent
   set         number                relativenumber 
   set         cursorline            ruler
   set         incsearch             hlsearch
