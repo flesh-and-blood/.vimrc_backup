@@ -178,12 +178,14 @@ augroup CMakeLists
   autocmd filetype cmake iab psd        PROJECT_SOURCE_DIR<c-r>=EatChar()<cr>
   autocmd filetype cmake iab pbd        PROJECT_BINARY_DIR<c-r>=EatChar()<cr>
 
-  " hi stands for header include
-  autocmd filetype cmake iab hi         target_include_directories()<left><c-r>=EatChar()<cr>
-  autocmd filetype cmake iab lk         target_link_libraries()<left><c-r>=EatChar()<cr>
+  " 这里是用 gcc 的参数来代指
+  autocmd filetype cmake iab I          target_include_directories()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab D          target_compile_definitions()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab l          target_link_libraries()<left><c-r>=EatChar()<cr>
 
   autocmd filetype cmake iab conf       configure_file()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab pro        project()<left><c-r>=EatChar()<cr>
+  autocmd filetype cmake iab inc        include()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab op         option()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab li         list()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab set        set()<left><c-r>=EatChar()<cr>
