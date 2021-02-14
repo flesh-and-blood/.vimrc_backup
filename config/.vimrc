@@ -115,12 +115,15 @@ augroup cplusplus
   autocmd filetype cpp iab 3ifd #ifdef
   autocmd filetype cpp iab 3end #endif
 
-  autocmd filetype cpp iab mia int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab mai int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab mia  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab mai  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
 
-  autocmd filetype cpp iab pri private:<esc><<
-  autocmd filetype cpp iab pub public:<esc><<
+  autocmd filetype cpp iab pri  private:<esc><<
+  autocmd filetype cpp iab pub  public:<esc><<
+  autocmd filetype cpp iab lk   [[likely]]
+  autocmd filetype cpp iab ulk  [[unlikely]]
 
+  autocmd filetype cpp iab cste constexpr
   autocmd filetype cpp iab typ  typename
   autocmd filetype cpp iab oper operator
   autocmd filetype cpp iab nul  nullptr
@@ -129,10 +132,14 @@ augroup cplusplus
   autocmd filetype cpp iab iln  inline
   autocmd filetype cpp iab ret  return
   autocmd filetype cpp iab str  struct
+  autocmd filetype cpp iab cst  const
   autocmd filetype cpp iab cla  class
+  autocmd filetype cpp iab cal  class
   autocmd filetype cpp iab tmep temp
   autocmd filetype cpp iab vodi void
+  autocmd filetype cpp iab ovid void
 
+  autocmd filetype cpp iab try  try<cr>{<cr>}<cr>catch<space>()<cr>{<cr>}<esc>3kO<c-r>=EatChar()<cr>
   autocmd filetype cpp iab tem  template<space><><left><c-r>=EatChar()<cr>
   autocmd filetype cpp iab swi  switch ()<left><c-r>=EatChar()<cr>
   autocmd filetype cpp iab whi  while ()<left><c-r>=EatChar()<cr>

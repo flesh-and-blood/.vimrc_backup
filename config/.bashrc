@@ -144,7 +144,7 @@ if [ -d "$HOME/Documents/usr/bin" ] ; then
     PATH="$HOME/Documents/usr/bin:$PATH"
 fi
 
-alias vim='vim -S Session.vim'
+#alias vim='vim -S Session.vim'
 alias ctags='arduino-ctags'
 
 alias e='exa --color always'
