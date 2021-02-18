@@ -165,7 +165,7 @@ alias tf='trizen -Ss'
 alias ts='trizen -S'
 alias tr='trizen -Rc'
 
-alias qtc='/home/codea/Documents/QT/Tools/QtCreator/bin/qtcreator'
+alias qtc="$HOME/Documents/projects/Qt/Tools/QtCreator/bin/qtcreator"
 alias cl='clear'
 alias shut='shutdown 0'
 alias q='exit'

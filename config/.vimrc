@@ -127,6 +127,8 @@ augroup cplusplus
   autocmd filetype cpp iab typ  typename
   autocmd filetype cpp iab oper operator
   autocmd filetype cpp iab nul  nullptr
+  autocmd filetype cpp iab vir  virtual
+  autocmd filetype cpp iab vri  virtual
   autocmd filetype cpp iab del  delete
   autocmd filetype cpp iab inl  inline
   autocmd filetype cpp iab iln  inline
@@ -138,6 +140,7 @@ augroup cplusplus
   autocmd filetype cpp iab tmep temp
   autocmd filetype cpp iab vodi void
   autocmd filetype cpp iab ovid void
+  autocmd filetype cpp iab eumn enum
 
   autocmd filetype cpp iab try  try<cr>{<cr>}<cr>catch<space>()<cr>{<cr>}<esc>3kO<c-r>=EatChar()<cr>
   autocmd filetype cpp iab tem  template<space><><left><c-r>=EatChar()<cr>
