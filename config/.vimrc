@@ -118,8 +118,10 @@ augroup cplusplus
   autocmd filetype cpp iab mia  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
   autocmd filetype cpp iab mai  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
 
-  autocmd filetype cpp iab pri  private:<esc><<
-  autocmd filetype cpp iab pub  public:<esc><<
+  autocmd filetype cpp iab pub  public
+  autocmd filetype cpp iab pri  private
+  autocmd filetype cpp iab pr:  private:<esc><<
+  autocmd filetype cpp iab pu:  public:<esc><<
   autocmd filetype cpp iab lk   [[likely]]
   autocmd filetype cpp iab ulk  [[unlikely]]
 
