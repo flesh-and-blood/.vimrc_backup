@@ -12,7 +12,7 @@ call vundle#begin()
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-fugitive'
 
-call vundle#end()    
+call vundle#end()
 
 " theme setting
   colorscheme gruvbox
@@ -120,8 +120,8 @@ augroup cplusplus
 
   autocmd filetype cpp iab pub  public
   autocmd filetype cpp iab pri  private
-  autocmd filetype cpp iab pr:  private:<esc><<
-  autocmd filetype cpp iab pu:  public:<esc><<
+  autocmd filetype cpp iab pr:  private:<esc><<o<c-r>=EatChar()<cr>
+  autocmd filetype cpp iab pu:  public:<esc><<o<c-r>=EatChar()<cr>
   autocmd filetype cpp iab lk   [[likely]]
   autocmd filetype cpp iab ulk  [[unlikely]]
 
@@ -131,6 +131,7 @@ augroup cplusplus
   autocmd filetype cpp iab nul  nullptr
   autocmd filetype cpp iab vir  virtual
   autocmd filetype cpp iab vri  virtual
+  autocmd filetype cpp iab sta  static
   autocmd filetype cpp iab del  delete
   autocmd filetype cpp iab inl  inline
   autocmd filetype cpp iab iln  inline
@@ -209,9 +210,9 @@ augroup CMakeLists
   autocmd filetype cmake iab ao         add_executable()<left><c-r>=EatChar()<cr>
   autocmd filetype cmake iab al         add_library()<left><c-r>=EatChar()<cr>
 
-  autocmd filetype cpp iab func         function()<cr>endfunction()<esc>k0f(a<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab for          foreach()<cr>endforeach()<esc>k0f(a<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab fro          foreach()<cr>endforeach()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab func       function()<cr>endfunction()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab for        foreach()<cr>endforeach()<esc>k0f(a<c-r>=EatChar()<cr>
+  autocmd filetype cmake iab fro        foreach()<cr>endforeach()<esc>k0f(a<c-r>=EatChar()<cr>
   autocmd filetype cmake iab if         if()<cr>endif()<esc>k0f(a<c-r>=EatChar()<cr>
   autocmd filetype cmake iab else       else()<cr><c-r>=EatChar()<cr>
 
