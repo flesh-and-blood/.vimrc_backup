@@ -63,7 +63,6 @@ call vundle#end()
   nnoremap <localleader>k <c-w>k
   nnoremap <localleader>l <c-w>l
 
-
 " n => next / l => last of current line
   onoremap in( :<c-u>normal! f(vi(<cr>
   onoremap in[ :<c-u>normal! f(vi[<cr>
@@ -80,6 +79,9 @@ call vundle#end()
   nnoremap <localleader>{ viw<esc>a}<esc>bi{<esc>lel
 
 " grep inner vim
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+  endif
   vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
   nnoremap <localleader>g :set operatorfunc=GrepOperator<cr>g@
   function! GrepOperator(type)
@@ -90,8 +92,9 @@ call vundle#end()
     else
         return
     endif
-        silent execute "grep! -R " . shellescape(@@) . " ."
-        copen        
+    
+    silent execute "grep! -R " . shellescape(@@) . " ."
+    copen        
   endfunction
 
 function! EatChar()
@@ -176,7 +179,8 @@ augroup CMakeLists
   autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
 
   autocmd filetype cmake iab std        CMAKE_CXX_STANDARD
-  autocmd filetype cmake iab des        DESTINATION
+  autocmd filetype cmake iab rib        DESCRIPTION
+  autocmd filetype cmake iab des        DESTINATION 
   autocmd filetype cmake iab inte       INTERFACE
   autocmd filetype cmake iab tag        TARGETS
   autocmd filetype cmake iab ver        VERSION
@@ -190,6 +194,8 @@ augroup CMakeLists
   autocmd filetype cmake iab csd        CMAKE_CURRENT_SOURCE_DIR<c-r>=EatChar()<cr>
   autocmd filetype cmake iab psd        PROJECT_SOURCE_DIR<c-r>=EatChar()<cr>
   autocmd filetype cmake iab pbd        PROJECT_BINARY_DIR<c-r>=EatChar()<cr>
+
+  autocmd filetype cmake iab cm         cmake_minimum_required()<left><c-r>=EatChar()<cr>
 
   " 这里是用 gcc 的参数来代指
   autocmd filetype cmake iab I          target_include_directories()<left><c-r>=EatChar()<cr>

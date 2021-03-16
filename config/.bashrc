@@ -159,6 +159,7 @@ alias cmki='touch CMakeLists.txt'
 alias cmkj='cmake -G Ninja .. && ninja'
 
 alias re='reboot'
+alias vims='vim -S Session.vim'
 
 alias up='trizen -Syu'
 alias tf='trizen -Ss'
