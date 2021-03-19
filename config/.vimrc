@@ -11,6 +11,7 @@ call vundle#begin()
   Plugin 'raimondi/delimitmate'
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-fugitive'
+  Plugin 'sjl/gundo.vim'
 
 call vundle#end()
 
@@ -39,9 +40,8 @@ call vundle#end()
 " nerdtree
   nnoremap <localleader>q :NERDTreeClose<cr>:mksession!<cr>:w<cr>:qall<cr>
   nnoremap <localleader>w :NERDTreeClose<cr>:mksession!<cr>:w<cr>
-  nnoremap <localleader>e :NERDTreeToggle<cr>
-  nnoremap <localleader>n :NERDTreeFocus<cr>
-
+  nnoremap <localleader>n :NERDTreeToggle<cr>
+  
   augroup nerdtree
     autocmd!
     
@@ -78,17 +78,25 @@ call vundle#end()
   nnoremap <localleader>[ viw<esc>a]<esc>bi[<esc>lel
   nnoremap <localleader>{ viw<esc>a}<esc>bi{<esc>lel
 
+" fly mode 
+  nnoremap ' f'
+  nnoremap " f"
+  nnoremap ) f)
+  nnoremap ] f]
+  nnoremap } f}
+
 " grep inner vim
   if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
   endif
+
   vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
   nnoremap <localleader>g :set operatorfunc=GrepOperator<cr>g@
   function! GrepOperator(type)
     if a:type ==# 'v'
         normal! `<v`>y
     elseif a:type ==# 'char'
-        normal! `[v`]y
+        normal! `[v`]y 
     else
         return
     endif
@@ -100,6 +108,10 @@ call vundle#end()
 function! EatChar()
   let dummy = getchar(0)
   return ''
+endfunction
+
+function! ShowMeF()
+
 endfunction
 
 augroup cplusplus
@@ -190,6 +202,9 @@ augroup CMakeLists
   autocmd filetype cmake iab sta        STATIC
   autocmd filetype cmake iab app        APPEND
   autocmd filetype cmake iab file       FILES
+
+  autocmd filetype cmake iab off        OFF
+  autocmd filetype cmake iab on         ON
 
   autocmd filetype cmake iab csd        CMAKE_CURRENT_SOURCE_DIR<c-r>=EatChar()<cr>
   autocmd filetype cmake iab psd        PROJECT_SOURCE_DIR<c-r>=EatChar()<cr>

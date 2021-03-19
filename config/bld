@@ -1,7 +1,20 @@
 #! /usr/bin/bash
 
-if [ -d "$PWD/build" ] ; then
-    cd build && cmake -G Ninja .. && ninja && cd ..
-else
-    mkdir build && cd build && cmake -G Ninja .. && ninja && cd ..
-fi
+build() 
+{
+    set CompileCommand
+
+    if [ -f "CMakeLists.txt" ] ; then 
+        CompileCommand="cmake -G Ninja .. && ninja && cd .. "
+    else if [ -f "makefile" ] || [ -f "Makefile" ] ; then 
+        CompileCommand="make -j 8 -C $PWD "
+    fi fi
+
+    if [ -d "$PWD/build" ] ; then
+        cd build && ${CompileCommand}
+    else
+        ${CompileCommand}
+    fi
+}
+
+build

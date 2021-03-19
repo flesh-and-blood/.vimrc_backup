@@ -159,7 +159,10 @@ alias cmki='touch CMakeLists.txt'
 alias cmkj='cmake -G Ninja .. && ninja'
 
 alias re='reboot'
+
 alias vims='vim -S Session.vim'
+alias ivms='vim -S Session.vim'
+alias imvs='vim -S Session.vim'
 
 alias up='trizen -Syu'
 alias tf='trizen -Ss'
@@ -173,6 +176,7 @@ alias q='exit'
 
 alias gga='git add'
 alias ggc='git commit -m'
+alias ggu='git submodule init && git submodule update'
 alias ggp='git push'
 alias pgg='git pull'
 alias ggs='git status'
