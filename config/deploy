@@ -1,0 +1,46 @@
+#! /usr/bin/bash
+
+deploy_home()
+{
+    cp -f .gitconfig "$HOME"
+    cp -f .xprofile "$HOME"
+    cp -f .bashrc "$HOME"
+    cp -f .vimrc "$HOME"
+    cp -f .pam_environment "$HOME"
+    cp -f .bash_profile "$HOME"
+    cp -f .profile "$HOME"
+    cp -f .gdbinit "$HOME"    
+}
+
+deploy_vim()
+{
+    local_vim_dir="$HOME/.vim/syntax/" 
+    
+    if [ -d ${local_vim_dir} ]; then
+        cp -f c.vim ${local_vim_dir}
+    else
+        mkdir -p ${local_vim_dir}
+        cp -f c.vim ${local_vim_dir}
+    fi 
+}
+
+deploy_local_bin()
+{
+    local_bin_dir="$HOME/Documents/usr/bin"
+ 
+    if [ -d ${local_bin_dir} ]; then
+        cp -f bld ${local_bin_dir}
+    else 
+        mkdir -p ${local_bin_dir}
+        cp -f bld ${local_bin_dir}
+    fi
+}
+
+deploy_all()
+{
+    deploy_home
+    deploy_vim
+    deploy_local_bin
+}
+
+deploy_all

@@ -141,7 +141,7 @@ ex ()
 }
 
 if [ -d "$HOME/Documents/usr/bin" ] ; then
-    PATH="$HOME/Documents/usr/bin:$PATH"
+    PATH="$HOME/Documents/usr/bin:$HOME/Documents/usr/arm-2009q3/bin:$PATH"
 fi
 
 #alias vim='vim -S Session.vim'
