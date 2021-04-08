@@ -118,63 +118,63 @@ augroup cplusplus
   autocmd!
 
   " hightlight config for https://vimawesome.com/plugin/vim-cpp-enhanced-highlight
-  autocmd filetype cpp let g:cpp_experimental_template_highlight = 1
-  autocmd filetype cpp let g:cpp_member_variable_highlight       = 1
-  autocmd filetype cpp let g:cpp_class_scope_highlight           = 1
-  autocmd filetype cpp let g:cpp_class_decl_highlight            = 1
-  autocmd filetype cpp let g:cpp_posix_standard                  = 1
+  autocmd filetype c cpp let g:cpp_experimental_template_highlight = 1
+  autocmd filetype c cpp let g:cpp_member_variable_highlight       = 1
+  autocmd filetype c cpp let g:cpp_class_scope_highlight           = 1
+  autocmd filetype c cpp let g:cpp_class_decl_highlight            = 1
+  autocmd filetype c cpp let g:cpp_posix_standard                  = 1
 
-  autocmd filetype cpp iab 3inc #include
-  autocmd filetype cpp iab 3def #define
-  autocmd filetype cpp iab 3ifn #ifndef
-  autocmd filetype cpp iab 3ifd #ifdef
-  autocmd filetype cpp iab 3end #endif
+  autocmd filetype c cpp iab 3inc #include
+  autocmd filetype c cpp iab 3def #define
+  autocmd filetype c cpp iab 3ifn #ifndef
+  autocmd filetype c cpp iab 3ifd #ifdef
+  autocmd filetype c cpp iab 3end #endif
 
-  autocmd filetype cpp iab mia  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab mai  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab mia  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab mai  int<space>main(int<space>argc,<space>char*<space>argv[])<cr>{<cr><esc>O<c-r>=EatChar()<cr>
 
-  autocmd filetype cpp iab pub  public
-  autocmd filetype cpp iab pri  private
-  autocmd filetype cpp iab pr:  private:<esc><<o<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab pu:  public:<esc><<o<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab lk   [[likely]]
-  autocmd filetype cpp iab ulk  [[unlikely]]
+  autocmd filetype c cpp iab pub  public
+  autocmd filetype c cpp iab pri  private
+  autocmd filetype c cpp iab pr:  private:<esc><<o<c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab pu:  public:<esc><<o<c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab lk   [[likely]]
+  autocmd filetype c cpp iab ulk  [[unlikely]]
 
-  autocmd filetype cpp iab cste constexpr
-  autocmd filetype cpp iab typ  typename
-  autocmd filetype cpp iab oper operator
-  autocmd filetype cpp iab nul  nullptr
-  autocmd filetype cpp iab vir  virtual
-  autocmd filetype cpp iab vri  virtual
-  autocmd filetype cpp iab sta  static
-  autocmd filetype cpp iab del  delete
-  autocmd filetype cpp iab inl  inline
-  autocmd filetype cpp iab iln  inline
-  autocmd filetype cpp iab ret  return
-  autocmd filetype cpp iab str  struct
-  autocmd filetype cpp iab cst  const
-  autocmd filetype cpp iab cla  class
-  autocmd filetype cpp iab cal  class
-  autocmd filetype cpp iab tmep temp
-  autocmd filetype cpp iab vodi void
-  autocmd filetype cpp iab ovid void
-  autocmd filetype cpp iab eumn enum
+  autocmd filetype c cpp iab cste constexpr
+  autocmd filetype c cpp iab typ  typename
+  autocmd filetype c cpp iab oper operator
+  autocmd filetype c cpp iab nul  nullptr
+  autocmd filetype c cpp iab vir  virtual
+  autocmd filetype c cpp iab vri  virtual
+  autocmd filetype c cpp iab sta  static
+  autocmd filetype c cpp iab del  delete
+  autocmd filetype c cpp iab inl  inline
+  autocmd filetype c cpp iab iln  inline
+  autocmd filetype c cpp iab ret  return
+  autocmd filetype c cpp iab str  struct
+  autocmd filetype c cpp iab cst  const
+  autocmd filetype c cpp iab cla  class
+  autocmd filetype c cpp iab cal  class
+  autocmd filetype c cpp iab tmep temp
+  autocmd filetype c cpp iab vodi void
+  autocmd filetype c cpp iab ovid void
+  autocmd filetype c cpp iab eumn enum
 
-  autocmd filetype cpp iab try  try<cr>{<cr>}<cr>catch<space>()<cr>{<cr>}<esc>3kO<c-r>=EatChar()<cr>
-  autocmd filetype cpp iab tem  template<space><><left><c-r>=EatChar()<cr>
-  autocmd filetype cpp iab swi  switch ()<left><c-r>=EatChar()<cr>
-  autocmd filetype cpp iab whi  while ()<left><c-r>=EatChar()<cr>
-  autocmd filetype cpp iab for  for ()<left><c-r>=EatChar()<cr>
-  autocmd filetype cpp iab fro  for ()<left><c-r>=EatChar()<cr>
-  autocmd filetype cpp iab if   if ()<left><c-r>=EatChar()<cr>
-  autocmd filetype cpp iab fi   if ()<left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab try  try<cr>{<cr>}<cr>catch<space>()<cr>{<cr>}<esc>3kO<c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab tem  template<space><><left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab swi  switch ()<left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab whi  while ()<left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab for  for ()<left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab fro  for ()<left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab if   if ()<left><c-r>=EatChar()<cr>
+  autocmd filetype c cpp iab fi   if ()<left><c-r>=EatChar()<cr>
   
-  autocmd filetype cpp inoremap .<space> ->
+  autocmd filetype c cpp inoremap .<space> ->
   
-  autocmd filetype cpp nnoremap <localleader>/ 0i//<esc>
+  autocmd filetype c cpp nnoremap <localleader>/ 0i//<esc>
 
-  autocmd filetype cpp nmap <localleader>s :w<cr>:call SwitchSourceHeaderCplusplus()<cr>
-  autocmd filetype cpp
+  autocmd filetype c cpp nmap <localleader>s :w<cr>:call SwitchSourceHeaderCplusplus()<cr>
+  autocmd filetype c cpp
     function! SwitchSourceHeaderCplusplus()
       if (expand ("%:e") == "cpp")
         find %:t:r.h
