@@ -11,7 +11,7 @@ call vundle#begin()
   Plugin 'raimondi/delimitmate'
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-fugitive'
-  Plugin 'sjl/gundo.vim'
+  Plugin 'mbbill/undotree'
 
 call vundle#end()
 
@@ -33,21 +33,19 @@ call vundle#end()
   set         foldenable            foldmethod=syntax
 
 " common mapping
+  nnoremap <localleader>q :NERDTreeClose<cr>UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
+  nnoremap <localleader>u :UndotreeToggle<cr>
+  nnoremap <localleader>n :NERDTreeToggle<cr>
+  nnoremap <localleader>w :mksession!<cr>:w<cr>
   nnoremap <space> za
   inoremap jk <esc>
   vnoremap jk <esc>
-
-" nerdtree
-  nnoremap <localleader>q :NERDTreeClose<cr>:mksession!<cr>:w<cr>:qall<cr>
-  nnoremap <localleader>w :NERDTreeClose<cr>:mksession!<cr>:w<cr>
-  nnoremap <localleader>n :NERDTreeToggle<cr>
   
   augroup nerdtree
     autocmd!
     
     " Exit Vim if NERDTree is the only window left.
     autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-    
     " If another buffer tries to replace NERDTree, put in the other window, and bring back NERDTree.
     autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
@@ -115,6 +113,7 @@ function! ShowMeF()
 endfunction
 
 augroup cplusplus
+  " 语法规定不能写成 c, cpp
   autocmd!
 
   " hightlight config for https://vimawesome.com/plugin/vim-cpp-enhanced-highlight

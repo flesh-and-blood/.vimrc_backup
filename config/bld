@@ -5,16 +5,19 @@ build()
     set CompileCommand
 
     if [ -f "CMakeLists.txt" ] ; then 
-        CompileCommand="cmake -G Ninja .. && ninja && cd .. "
-    else if [ -f "makefile" ] || [ -f "Makefile" ] ; then 
+        CompileCommand="cmake -G Ninja .. && ninja"
+    else if [ -f "makefile" ] || [ -f "Makefile" ] || [ -f "GNUMakefile" ]; then 
         CompileCommand="make -j 8 -C $PWD "
     fi fi
 
     if [ -d "$PWD/build" ] ; then
-        cd build && ${CompileCommand}
+        cd "$PWD/build"
     else
-        ${CompileCommand}
+        mkdir "$PWD/build" && cd "$PWD/build"
     fi
+        
+    ${CompileCommand}
+    cd ..
 }
 
 build
