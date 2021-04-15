@@ -159,6 +159,7 @@ alias cmki='touch CMakeLists.txt'
 alias cmkj='cmake -G Ninja .. && ninja'
 
 alias re='reboot'
+alias cat='bat'
 
 alias vims='vim -S Session.vim'
 alias ivms='vim -S Session.vim'

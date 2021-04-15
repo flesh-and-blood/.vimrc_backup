@@ -33,7 +33,7 @@ call vundle#end()
   set         foldenable            foldmethod=syntax
 
 " common mapping
-  nnoremap <localleader>q :NERDTreeClose<cr>UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
+  nnoremap <localleader>q :NERDTreeClose<cr>:UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
   nnoremap <localleader>u :UndotreeToggle<cr>
   nnoremap <localleader>n :NERDTreeToggle<cr>
   nnoremap <localleader>w :mksession!<cr>:w<cr>
