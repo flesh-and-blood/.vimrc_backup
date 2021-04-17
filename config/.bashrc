@@ -161,6 +161,7 @@ alias cmkj='cmake -G Ninja .. && ninja'
 alias re='reboot'
 alias cat='bat'
 
+alias ivm='vim'
 alias vims='vim -S Session.vim'
 alias ivms='vim -S Session.vim'
 alias imvs='vim -S Session.vim'
