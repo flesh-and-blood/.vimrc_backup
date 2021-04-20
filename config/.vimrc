@@ -165,17 +165,17 @@ augroup cplusplus
 		return "int main(int argc, char* argv[])" . BreakLine() . "{" .  BreakLine() . "}"
     endfunction  
 
-  autocmd filetype c,cpp iab try  try<cr>{<cr>}<cr>catch<space>()<cr>{<cr>}<esc>3kO<c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab try  try<cr>{<cr>}<cr>catch<space>()<cr>{<cr>}<esc>3kO<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
   autocmd filetype c,cpp iab met  template <><left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
   autocmd filetype c,cpp iab tem  template <><left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
-  autocmd filetype c,cpp iab swi  switch<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype c,cpp iab whi  while<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype c,cpp iab for  for<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype c,cpp iab fro  for<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype c,cpp iab if   if<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype c,cpp iab fi   if<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab swi  switch<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab whi  while<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab for  for<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab fro  for<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab if   if<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype c,cpp iab fi   if<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
   
   autocmd filetype c,cpp inoremap .<space> ->
   
@@ -214,35 +214,35 @@ augroup CMakeLists
   autocmd filetype cmake iab off        OFF
   autocmd filetype cmake iab on         ON
 
-  autocmd filetype cmake iab csd        CMAKE_CURRENT_SOURCE_DIR<c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab psd        PROJECT_SOURCE_DIR<c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab pbd        PROJECT_BINARY_DIR<c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab csd        CMAKE_CURRENT_SOURCE_DIR<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab psd        PROJECT_SOURCE_DIR<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab pbd        PROJECT_BINARY_DIR<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
-  autocmd filetype cmake iab cm         cmake_minimum_required()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab cm         cmake_minimum_required()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
   " 这里是用 gcc 的参数来代指
-  autocmd filetype cmake iab I          target_include_directories()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab D          target_compile_definitions()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab l          target_link_libraries()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab I          target_include_directories()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab D          target_compile_definitions()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab l          target_link_libraries()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
-  autocmd filetype cmake iab conf       configure_file()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab pro        project()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab inc        include()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab op         option()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab li         list()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab set        set()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab $          ${}<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab conf       configure_file()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab pro        project()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab inc        include()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab op         option()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab li         list()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab set        set()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab $          ${}<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
   
-  autocmd filetype cmake iab as         add_subdirectory()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab ad         add_dependencies()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab am         add_definitions()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab ao         add_executable()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab al         add_library()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab as         add_subdirectory()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab ad         add_dependencies()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab am         add_definitions()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab ao         add_executable()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab al         add_library()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
-  autocmd filetype cmake iab func       function()<cr>endfunction()<esc>k0f(a<c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab for        foreach()<cr>endforeach()<esc>k0f(a<c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab fro        foreach()<cr>endforeach()<esc>k0f(a<c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab if         if()<cr>endif()<esc>k0f(a<c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype cmake iab else       else()<cr><c-r>==FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab func       function()<cr>endfunction()<esc>k0f(a<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab for        foreach()<cr>endforeach()<esc>k0f(a<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab fro        foreach()<cr>endforeach()<esc>k0f(a<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab if         if()<cr>endif()<esc>k0f(a<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+  autocmd filetype cmake iab else       else()<cr><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
 augroup END
