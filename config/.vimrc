@@ -128,7 +128,7 @@ augroup cplusplus
 
   autocmd filetype c,cpp
 	function! BreakLine()
-		return "\<cr>\<bs>\<bs>\<bs>\<bs>"
+		return "\<cr>\<bs>"
 	endfunction
 
   autocmd filetype c,cpp iab pub  public
