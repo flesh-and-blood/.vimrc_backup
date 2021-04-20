@@ -172,7 +172,7 @@ augroup cplusplus
 
   autocmd filetype c,cpp iab swi  switch<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
   autocmd filetype c,cpp iab whi  while<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
-  autocmd filetype c,cpp iab for  for<space>()<left>
+  autocmd filetype c,cpp iab for  for<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
   autocmd filetype c,cpp iab fro  for<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
   autocmd filetype c,cpp iab if   if<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
   autocmd filetype c,cpp iab fi   if<space>()<left><c-r>==FixAutoPairPluginAndEatSpace()<cr>
