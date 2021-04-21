@@ -45,8 +45,8 @@ call vundle#end()
 
 " common mapping
   nnoremap <localleader>q :NERDTreeClose<cr>:UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
-  nnoremap <localleader>u :UndotreeToggle<cr>
-  nnoremap <localleader>n :NERDTreeToggle<cr>
+  nnoremap <localleader>u :NERDTreeClose<cr>:UndotreeToggle<cr>
+  nnoremap <localleader>n :UndotreeHide<cr>:NERDTreeToggle<cr>
   nnoremap <localleader>w :mksession!<cr>:w<cr>
   nnoremap <space> za
   inoremap jk <esc>
