@@ -11,6 +11,11 @@ augroup vimrc
 			return "function!\<cr>endfunction"
 		endfunction
 
+	autocmd filetype vim iab if <c-r>=CompletionVimIf()<cr><esc>kA
+		function! CompletionVimIf()
+			return "if\<cr>endif"
+		endfunction
+
 augroup END
 
 

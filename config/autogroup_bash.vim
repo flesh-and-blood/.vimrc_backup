@@ -1,6 +1,6 @@
 augroup Bash
 	autocmd!
 
-	autocmd filetype bash setlocal foldmethod=syntax
+	autocmd filetype bash setlocal foldmethod=indent
 
 augroup END

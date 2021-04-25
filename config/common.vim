@@ -1,6 +1,8 @@
 " common settting 
 let maplocalleader=";" 
+
 filetype 	plugin indent on
+filetype 	detect
 syntax 		enable
 
 " arduino-ctags leader-d => definition / leader-t => return
@@ -61,3 +63,19 @@ function! EatChar()
 	let dummy = getchar(0) 
 	return ''
 endfunction
+
+augroup common
+	autocmd!
+
+	autocmd BufEnter * call FixFiletype()
+
+augroup END
+
+function! FixFiletype()
+	if did_filetype()
+		finish
+	elseif getline(1) =~ '^#!.*bash'
+		setfiletype bash
+	endif
+endfunction
+
