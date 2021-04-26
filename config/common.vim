@@ -76,6 +76,8 @@ function! FixFiletype()
 		finish
 	elseif getline(1) =~ '^#!.*bash'
 		setfiletype bash
+	elseif getline(2) =~ '^#.*bash.*'
+		setfiletype bash
 	endif
 endfunction
 
