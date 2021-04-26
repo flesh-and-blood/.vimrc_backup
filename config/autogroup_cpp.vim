@@ -2,7 +2,7 @@ augroup cplusplus
 	autocmd!
 
 	" 语法规定不能写成 c, cpp
-	autocmd filetype c,cpp setlocal foldmethod=indent
+	autocmd filetype c,cpp setlocal foldmethod=syntax
 
 	autocmd filetype c,cpp iab 3inc #include
 	autocmd filetype c,cpp iab 3def #define
