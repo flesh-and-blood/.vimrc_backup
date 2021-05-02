@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+	echo "no enough args"
+fi
+
+for headers in $* ; do
+	echo "create header file ${headers}"
+	touch ${headers}.h 
+
+	echo "#ifndef ${headers^^}_H_" > 		${headers}.h
+	echo "#define ${headers^^}_H_" >> 		${headers}.h
+	echo "#endif 	// ${headers^^}_H_" >> 	${headers}.h
+
+done

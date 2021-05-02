@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+	echo "no enough args"
+fi
+
+find_project_root()
+{
+	current_absolute_path=$(pwd)
+
+	while [ ! -d .git ]; do
+		cd ..
+	done
+
+	project_absolute_path=$(pwd)
+
+	cd ${current_absolute_path}
+
+	export path_from=${current_absolute_path:${#project_absolute_path}}
+}
+
+for classes in $* ; do
+	h ${classes} &&
+
+	echo "create source file ${classes}"
+	touch ${classes}.cpp
+
+	find_project_root 
+	echo "#include \"${path_from}/${classes}.h\"" > ${classes}.cpp
+
+done 

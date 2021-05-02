@@ -32,7 +32,7 @@ deploy_vim()
         autogroup_bash.vim
     )
     
-    if [ -d ${local_vim_dir[*]} ]; then
+    if [ -d ${local_vim_dir} ]; then
 	    for i in "${vim_source[@]}"; do
             echo -e "\tcp -f ${i} ${local_vim_dir}"
 	        cp -f ${i} ${local_vim_dir}
@@ -51,16 +51,28 @@ deploy_vim()
 deploy_local_bin()
 {
     local_bin_dir="$HOME/Documents/usr/bin"
+
+	local_bin=(
+		bld
+		h
+		hc
+	)
  
     if [ -d ${local_bin_dir} ]; then
-		echo -e "\tcp -f bld ${local_bin_dir}"
-        cp -f bld ${local_bin_dir}
+		for i in "${local_bin[@]}"; do
+			echo -e "\tcp -f ${i} ${local_bin_dir}"
+			cp -f ${i} ${local_bin_dir}
+		done
+
     else 
 		echo -e "\tmkdir -p ${local_bin_dir}"
         mkdir -p ${local_bin_dir}
 
-		echo -e "\tcp -f bld ${local_bin_dir}"
-        cp -f bld ${local_bin_dir}
+		for i in "${local_bin[@]}"; do
+			echo -e "\tcp -f ${i} ${local_bin_dir}"
+			cp -f ${i} ${local_bin_dir}
+		done
+
     fi
 }
 
