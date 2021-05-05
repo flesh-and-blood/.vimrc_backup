@@ -108,6 +108,7 @@ shopt -s checkwinsize
 
 shopt -s expand_aliases
 
+export EDITOR=vim
 # export QT_SELECT=4
 
 # Enable history appending instead of overwriting.  #139609
@@ -185,3 +186,4 @@ alias ggs='git status'
 alias ggd='git difftool'
 alias ggm='git mergetool'
 alias ggl='git lg'  # lg 的配置在 .gitconfig 中
+alias ggk='gitkraken .'
