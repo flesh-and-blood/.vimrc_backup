@@ -149,8 +149,6 @@ fi
 alias ctags='arduino-ctags'
 
 alias e='exa --color always'
-alias sl='exa --color always'
-alias ls='exa --color always'
 
 alias mk='make'
 alias amke='make'
@@ -167,6 +165,7 @@ alias vims='vim -S Session.vim'
 alias ivms='vim -S Session.vim'
 alias imvs='vim -S Session.vim'
 
+alias t='trizen'
 alias up='trizen -Syu'
 alias tf='trizen -Ss'
 alias ts='trizen -S'
