@@ -15,8 +15,9 @@ find_project_root()
 	project_absolute_path=$(pwd)
 
 	cd ${current_absolute_path}
-
-	export path_from=${current_absolute_path:${#project_absolute_path}}
+	
+	path_from=${current_absolute_path:${#project_absolute_path}}
+	export path_from=${path_from:1}
 }
 
 for classes in $* ; do
