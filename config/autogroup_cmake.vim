@@ -8,6 +8,7 @@ augroup CMakeLists
 	autocmd filetype cmake iab rib	DESCRIPTION
 	autocmd filetype cmake iab des 	DESTINATION 
 	autocmd filetype cmake iab inte	INTERFACE
+	autocmd filetype cmake iab prop PROPERTIES
 	autocmd filetype cmake iab tag	TARGETS
 	autocmd filetype cmake iab ver	VERSION
 	autocmd filetype cmake iab pri	PRIVATE
@@ -23,6 +24,12 @@ augroup CMakeLists
 	autocmd filetype cmake iab csd	CMAKE_CURRENT_SOURCE_DIR<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype cmake iab psd	PROJECT_SOURCE_DIR<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype cmake iab pbd	PROJECT_BINARY_DIR<c-r>=FixAutoPairPluginAndEatSpace()<cr>
+
+	autocmd filetype cmake iab setp <c-r>=CompleteTargetProperties()<cr><left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+	autocmd filetype cmake
+		function! CompleteTargetProperties()
+			return "set_target_properties()"
+		endfunction
 
 	autocmd filetype cmake iab cm	cmake_minimum_required()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 

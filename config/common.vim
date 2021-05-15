@@ -6,8 +6,8 @@ filetype 	detect
 syntax 		enable
 
 " arduino-ctags leader-d => definition / leader-t => return
-nnoremap <localleader>d :mksession!<cr>:w<cr><c-]>zz
-nnoremap <localleader>t :mksession!<cr>:w<cr><c-t>zz
+nnoremap <localleader>d <c-]>zz
+nnoremap <localleader>t <c-t>zz
 
 nnoremap <localleader>w :mksession!<cr>:w<cr>
 nnoremap <space> za

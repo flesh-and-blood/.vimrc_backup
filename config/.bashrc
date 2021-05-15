@@ -149,6 +149,7 @@ fi
 alias ctags='arduino-ctags'
 
 alias e='exa --color always'
+alias sl='ls'
 
 alias mk='make'
 alias amke='make'
@@ -159,6 +160,9 @@ alias cmkj='cmake -G Ninja .. && ninja'
 
 alias re='reboot'
 alias cat='bat'
+
+alias docker='sudo docker'
+alias dock='sudo docker'
 
 alias ivm='vim'
 alias vims='vim -S Session.vim'

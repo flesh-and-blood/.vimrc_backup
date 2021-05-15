@@ -2,6 +2,7 @@
 
 build() 
 {
+	# create build directory if not exsit
     if [ -d "$PWD/build" ] ; then
 		echo "cd "$PWD/build""
         cd "$PWD/build"
@@ -11,8 +12,31 @@ build()
     fi
 
     if [ -f "../CMakeLists.txt" ] ; then 
-		echo "cmake -G Ninja .."
-		cmake -G Ninja ..
+		case $1 in
+			release) 
+				echo "set compile type release"
+				cmake_flag="-DCMAKE_BUILD_TYPE=Release ${cmake_flag}"
+				;;
+			re)
+				echo "set compile type release"
+				cmake_flag="-DCMAKE_BUILD_TYPE=Release ${cmake_flag}"
+				;;
+
+			debug)
+				echo "set compile type debug"
+				cmake_flag="-DCMAKE_BUILD_TYPE=Debug ${cmake_flag}"
+				;;
+			de)
+				echo "set compile type debug"
+				cmake_flag="-DCMAKE_BUILD_TYPE=Debug ${cmake_flag}"
+				;;
+			*)
+				echo "unknow type $1"
+				;;
+		esac
+
+		echo "cmake ${cmake_flag} -G Ninja .."
+		cmake ${cmake_flag} -G Ninja ..
 
 		echo "ninja"
 		ninja
@@ -26,4 +50,4 @@ build()
     cd ..
 }
 
-build
+build $*

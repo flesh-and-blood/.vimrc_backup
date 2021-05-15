@@ -47,9 +47,11 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark='dark'
 
 " common mapping
-nnoremap <localleader>q :NERDTreeClose<cr>:UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
-nnoremap <localleader>u :NERDTreeClose<cr>:UndotreeToggle<cr>
-nnoremap <localleader>n :UndotreeHide<cr>:NERDTreeToggle<cr>
+nnoremap <localleader>q 	:NERDTreeClose<cr>:UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
+nnoremap <localleader>o 	:NERDTreeFocus<cr>
+nnoremap <localleader>rt 	:NERDTreeRefreshRoot<cr>
+nnoremap <localleader>u 	:NERDTreeClose<cr>:UndotreeToggle<cr>
+nnoremap <localleader>n 	:UndotreeHide<cr>:NERDTreeToggle<cr>
 
 " Close preview window after completing the insertion
 let g:ycm_autoclose_preview_window_after_insertion = 1
