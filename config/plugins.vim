@@ -70,3 +70,5 @@ let g:ycm_error_symbol = '>>'                    " The error symbol in Vim gutte
 let g:ycm_enable_diagnostic_signs = 1            " Display icons in Vim's gutter, error, warnings
 let g:ycm_enable_diagnostic_highlighting = 1     " Highlight regions of diagnostic text
 let g:ycm_echo_current_diagnostic = 1            " Echo line's diagnostic that cursor is on
+
+nnoremap <localleader>f		:YcmCompleter FixIt<cr>
