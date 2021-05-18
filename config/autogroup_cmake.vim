@@ -4,6 +4,10 @@ augroup CMakeLists
 	autocmd filetype cmake setlocal foldmethod=indent
 	autocmd filetype cmake nnoremap <localleader>/ 0i#<esc>
 
+	autocmd filetype cmake iab aod 	ARCHIVE_OUTPUT_DIRECTORY
+	autocmd filetype cmake iab sod 	LIBRARY_OUTPUT_DIRECTORY
+	autocmd filetype cmake iab ood 	RUNTIME_OUTPUT_DIRECTORY
+
 	autocmd filetype cmake iab std 	CMAKE_CXX_STANDARD
 	autocmd filetype cmake iab rib	DESCRIPTION
 	autocmd filetype cmake iab des 	DESTINATION 
