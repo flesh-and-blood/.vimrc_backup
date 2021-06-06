@@ -175,6 +175,7 @@ alias up='trizen -Syu'
 alias tf='trizen -Ss'
 alias ts='trizen -S'
 alias tr='trizen -Rc'
+alias tc='trizen -Sc'
 
 alias qtc="$HOME/Documents/projects/Qt/Tools/QtCreator/bin/qtcreator.sh"
 alias cl='clear'
