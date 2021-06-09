@@ -184,7 +184,7 @@ alias q='exit'
 
 alias gga='git add'
 alias ggc='git commit -m'
-alias ggu='git submodule init && git submodule update'
+alias ggu='git submodule update --init --recursive'
 alias ggp='git push'
 alias pgg='git pull'
 alias ggs='git status'
