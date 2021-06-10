@@ -191,4 +191,4 @@ alias ggs='git status'
 alias ggd='git difftool'
 alias ggm='git mergetool'
 alias ggl='git lg'  # lg 的配置在 .gitconfig 中
-alias ggk='gitkraken .'
+alias ggb='git branch'
