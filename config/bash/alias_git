@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+alias gga='git add'
+alias ggc='git commit -m'
+alias ggu='git submodule update --init --recursive'
+alias ggp='git push'
+alias pgg='git pull'
+alias ggs='git status'
+alias ggd='git difftool'
+alias ggm='git mergetool'
+alias ggl='git lg'  # lg 的配置在 .gitconfig 中
+alias ggb='git branch'

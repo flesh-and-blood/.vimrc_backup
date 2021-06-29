@@ -1,0 +1,31 @@
+#! /usr/bin/bash
+
+bash_temp=.bash.temp
+
+if [ ! -f ${bash_temp} ]; then
+	touch ${bash_temp}
+	echo "touch temp file: ${bash_temp}"
+fi
+
+cat bashrc > ${bash_temp}
+echo "write bashrc into ${bash_temp}"
+
+alias_config=(`ls alias_*`)
+
+echo "detected alias: $alias_config"
+
+for i in "${alias_config[@]}"; do
+	echo "source ${PWD}/${i}" >> ${bash_temp}
+	echo "write source $1 into ${bash_temp}"
+done
+
+
+cp -f ${bash_temp} $HOME/.bashrc
+echo "cp -f ${bash_temp} $HOME/.bashrc"
+
+rm ${bash_temp}
+source $HOME/.bashrc
+
+cp -f bash_profile ${HOME}/.bash_profile
+echo "cp -f bash_profile ${HOME}/.bash_profile"
+

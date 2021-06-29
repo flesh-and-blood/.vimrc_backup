@@ -90,12 +90,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -126,7 +120,7 @@ ex ()
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
       *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
+      *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
       *.tar)       tar xf $1    ;;
       *.tbz2)      tar xjf $1   ;;
@@ -142,53 +136,8 @@ ex ()
 }
 
 if [ -d "$HOME/Documents/usr/bin" ] ; then
-    PATH="$HOME/Documents/usr/bin:$HOME/Documents/usr/scitools/bin/linux64/:/usr/local/arm/:$PATH"
+    PATH="$HOME/Documents/usr/bin:/usr/local/arm/:$PATH"
+else
+	mkdir -p "$HOME/Documents/usr/bin" 
 fi
 
-#alias vim='vim -S Session.vim'
-alias ctags='arduino-ctags'
-
-alias e='exa --color always'
-alias sl='exa --color always'
-alias ls='exa --color always'
-
-alias mk='make'
-alias amke='make'
-alias cmk='cmake'
-alias ccmk='ccmake'
-alias cmki='touch CMakeLists.txt'
-alias cmkj='cmake -G Ninja .. && ninja'
-
-alias re='reboot'
-alias cat='bat'
-
-alias docker='sudo docker'
-alias dock='sudo docker'
-
-alias ivm='vim'
-alias vims='vim -S Session.vim'
-alias ivms='vim -S Session.vim'
-alias imvs='vim -S Session.vim'
-
-alias t='trizen'
-alias up='trizen -Syu'
-alias tf='trizen -Ss'
-alias ts='trizen -S'
-alias tr='trizen -Rc'
-alias tc='trizen -Sc'
-
-alias qtc="$HOME/Documents/projects/Qt/Tools/QtCreator/bin/qtcreator.sh"
-alias cl='clear'
-alias shut='shutdown 0'
-alias q='exit'
-
-alias gga='git add'
-alias ggc='git commit -m'
-alias ggu='git submodule update --init --recursive'
-alias ggp='git push'
-alias pgg='git pull'
-alias ggs='git status'
-alias ggd='git difftool'
-alias ggm='git mergetool'
-alias ggl='git lg'  # lg 的配置在 .gitconfig 中
-alias ggb='git branch'

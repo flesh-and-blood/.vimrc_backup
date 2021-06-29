@@ -1,91 +1,11 @@
 #!/bin/bash
 
-deploy_home()
-{
-	home_source=(
-		.gitconfig 
-		.xprofile
-		.bashrc
-		.vimrc
-		.pam_environment
-		.bash_profile
-		.profile
-		.gdbinit
-	)
+current_path=${PWD}
+directions=(`fd -t d`)
 
-	for i in "${home_source[@]}"; do
-		echo -e "\tcp -f ${i} ${HOME}"
-		cp -f ${i} ${HOME}
-	done
-}
+for i in ${directions[@]}; do
+	cd ${i}
+	${PWD}/deploy
+	cd ${current_path}
+done
 
-deploy_vim()
-{
-    local_vim_dir="$HOME/.vim/" 
-    vim_source=(
-        common.vim 
-        plugins.vim 
-        c.vim 
-        autogroup_cpp.vim 
-        autogroup_cmake.vim 
-        autogroup_vimscript.vim 
-        autogroup_bash.vim
-    )
-    
-    if [ -d ${local_vim_dir} ]; then
-	    for i in "${vim_source[@]}"; do
-            echo -e "\tcp -f ${i} ${local_vim_dir}"
-	        cp -f ${i} ${local_vim_dir}
-	    done
-    else
-		echo -e "\t mkdir -p ${local_vim_dir}"
-        mkdir -p ${local_vim_dir}
-
-        for i in "${vim_source[@]}"; do
-            echo -e "\tcp -f ${i} ${local_vim_dir}"
-	        cp -f ${i} ${local_vim_dir}
-	    done
-    fi 
-}
-
-deploy_local_bin()
-{
-    local_bin_dir="$HOME/Documents/usr/bin"
-
-	local_bin=(
-		bld
-		h
-		hc
-	)
- 
-    if [ -d ${local_bin_dir} ]; then
-		for i in "${local_bin[@]}"; do
-			echo -e "\tcp -f ${i} ${local_bin_dir}"
-			cp -f ${i} ${local_bin_dir}
-		done
-
-    else 
-		echo -e "\tmkdir -p ${local_bin_dir}"
-        mkdir -p ${local_bin_dir}
-
-		for i in "${local_bin[@]}"; do
-			echo -e "\tcp -f ${i} ${local_bin_dir}"
-			cp -f ${i} ${local_bin_dir}
-		done
-
-    fi
-}
-
-deploy_all()
-{
-	echo "deploy home"
-    deploy_home
-
-	echo -e "\ndeploy vim"
-    deploy_vim
-
-	echo -e "\ndeploy local bin"
-    deploy_local_bin
-}
-
-deploy_all

@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+
+alias ctags='arduino-ctags'
+alias ivm='vim'
+alias vims='vim -S Session.vim'
+alias ivms='vim -S Session.vim'
+alias imvs='vim -S Session.vim'
+

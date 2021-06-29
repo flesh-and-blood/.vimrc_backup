@@ -1,0 +1,23 @@
+#! /usr/bin/bash
+
+local_bin_dir="$HOME/Documents/usr/bin"
+local_bin=(
+	bld
+	h
+	hc
+)
+
+if [ -d ${local_bin_dir} ]; then
+	for i in "${local_bin[@]}"; do
+		echo "cp -f ${i} ${local_bin_dir}"
+		cp -f ${i} ${local_bin_dir}
+	done
+else 
+	echo "mkdir -p ${local_bin_dir}"
+	mkdir -p ${local_bin_dir}
+
+	for i in "${local_bin[@]}"; do
+		echo "cp -f ${i} ${local_bin_dir}"
+		cp -f ${i} ${local_bin_dir}
+	done
+fi

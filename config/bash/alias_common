@@ -1,0 +1,22 @@
+#! /usr/bin/bash
+
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias np='nano -w PKGBUILD'
+alias more=less
+
+alias e='exa --color always'
+alias sl='exa --color always'
+alias ls='exa --color always'
+
+alias re='reboot'
+alias cat='bat'
+
+alias docker='sudo docker'
+alias dock='sudo docker'
+
+alias qtc="$HOME/Documents/projects/Qt/Tools/QtCreator/bin/qtcreator.sh"
+alias cl='clear'
+alias shut='shutdown 0'
+alias q='exit'

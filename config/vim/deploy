@@ -1,0 +1,27 @@
+#! /usr/bin/bash
+
+local_vim_dir="$HOME/.vim/" 
+
+if [ ! -d ${local_vim_dir} ]; then
+	echo "mkdir -p ${local_vim_dir}"
+	mkdir -p ${local_vim_dir}
+fi 
+
+vim_temp=.vimrc.temp
+if [! -f ${vim_temp}]; then
+	touch ${vim_temp}
+	echo "touch ${vim_temp}"
+fi
+
+vim_source=(`ls *.vim`)
+
+for i in "${vim_source[@]}"; do
+	echo "source ${PWD}/${i}" >> ${vim_temp}
+	echo "write vim source ${PWD}/${i} into ${vim_temp}"
+done
+
+cp ${vim_temp} ${HOME}/.vimrc
+echo "cp ${vim_temp} ${HOME}/.vimrc"
+
+rm ${vim_temp}
+echo "rm ${vim_temp}"

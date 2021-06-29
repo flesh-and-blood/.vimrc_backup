@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+alias t='trizen'
+alias up='trizen -Syu'
+alias tf='trizen -Ss'
+alias ts='trizen -S'
+alias tr='trizen -Rc'
+alias tc='trizen -Sc'
+

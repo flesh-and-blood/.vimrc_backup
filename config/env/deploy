@@ -1,0 +1,10 @@
+#! /usr/bin/bash 
+
+home_source=(`ls env_*`)
+
+for i in "${home_source[@]}"; do
+	target_temp=`ls ${j} | sed 's/env_\(.*\)/\.\1/g'`
+
+	cp -f ${i} ${HOME}/${target_temp}
+	echo "cp -f ${i} ${HOME}/${target_temp}"
+done
