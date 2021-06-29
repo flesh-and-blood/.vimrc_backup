@@ -78,6 +78,8 @@ function! FixFiletype()
 		setfiletype bash
 	elseif getline(2) =~ '^#.*bash.*'
 		setfiletype bash
+	elseif getline(1) =~ '^#!.*python'
+		setfiletype python
 	endif
 endfunction
 

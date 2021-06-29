@@ -1,6 +1,8 @@
 augroup vimrc 
 	autocmd!
 
+	autocmd filetype vim iab ft filetype
+
 	autocmd filetype vim setlocal foldmethod=indent
 
 	autocmd filetype vim iab ret return
@@ -16,6 +18,8 @@ augroup vimrc
 			return "if\<cr>endif"
 		endfunction
 
-augroup END
+	autocmd filetype vim iab auc autocmd
+	autocmd filetype vim iab aug augroup<cr><tab>autocmd!<cr><cr>augroup<space>END<esc>3kA
 
+augroup END
 

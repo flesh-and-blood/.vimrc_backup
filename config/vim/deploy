@@ -1,5 +1,7 @@
 #! /usr/bin/bash
 
+rm -f Session.vim
+
 local_vim_dir="$HOME/.vim/" 
 
 if [ ! -d ${local_vim_dir} ]; then
