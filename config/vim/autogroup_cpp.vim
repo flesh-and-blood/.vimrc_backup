@@ -34,6 +34,7 @@ augroup cplusplus
 	autocmd filetype c,cpp iab inl  inline
 	autocmd filetype c,cpp iab iln  inline
 	autocmd filetype c,cpp iab ret  return
+	autocmd filetype c,cpp iab rett ret<space>=
 	autocmd filetype c,cpp iab str  struct
 	autocmd filetype c,cpp iab cst  const
 	autocmd filetype c,cpp iab cla  class

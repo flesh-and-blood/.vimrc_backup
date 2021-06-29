@@ -6,6 +6,7 @@ augroup vimrc
 	autocmd filetype vim setlocal foldmethod=indent
 
 	autocmd filetype vim iab ret return
+	autocmd filetype vim iab rett ret<space>=
 
 	autocmd filetype vim iab fun <c-r>=CompletionVimFunction()<cr><esc>kA
 	autocmd filetype vim
