@@ -16,33 +16,47 @@ augroup cplusplus
 		endfunction
 
 	autocmd filetype c,cpp iab pub  public
+	autocmd filetype c,cpp iab pu:  public:<esc><<o<bs>
+
 	autocmd filetype c,cpp iab pri  private
 	autocmd filetype c,cpp iab pr:  private:<esc><<o<bs>
-	autocmd filetype c,cpp iab pu:  public:<esc><<o<bs>
+
 	autocmd filetype c,cpp iab lk   [[likely]]
 	autocmd filetype c,cpp iab ulk  [[unlikely]]
 
 	autocmd filetype c,cpp iab cste constexpr
-	autocmd filetype c,cpp iab typ  typename
-	autocmd filetype c,cpp iab nam  namespace
+	autocmd filetype c,cpp iab cst  const
+
 	autocmd filetype c,cpp iab oper operator
+
+	autocmd filetype c,cpp iab typ  typename
+
+	autocmd filetype c,cpp iab nam  namespace
+	autocmd filetype c,cpp iab eumn enum
+
 	autocmd filetype c,cpp iab nul  nullptr
+	autocmd filetype c,cpp iab del  delete
+
 	autocmd filetype c,cpp iab vir  virtual
 	autocmd filetype c,cpp iab vri  virtual
+
 	autocmd filetype c,cpp iab sta  static
-	autocmd filetype c,cpp iab del  delete
+
 	autocmd filetype c,cpp iab inl  inline
 	autocmd filetype c,cpp iab iln  inline
+
 	autocmd filetype c,cpp iab ret  return
 	autocmd filetype c,cpp iab rett ret<space>=
+
 	autocmd filetype c,cpp iab str  struct
-	autocmd filetype c,cpp iab cst  const
+
 	autocmd filetype c,cpp iab cla  class
 	autocmd filetype c,cpp iab cal  class
+
 	autocmd filetype c,cpp iab tmep temp
+
 	autocmd filetype c,cpp iab vodi void
 	autocmd filetype c,cpp iab ovid void
-	autocmd filetype c,cpp iab eumn enum
 
 	autocmd filetype c,cpp iab mai 	<c-r>=CompletionMain()<cr><esc>O<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp iab mia 	<c-r>=CompletionMain()<cr><esc>O<c-r>=FixAutoPairPluginAndEatSpace()<cr>
@@ -59,10 +73,14 @@ augroup cplusplus
 
 	autocmd filetype c,cpp iab met  template<space><><left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp iab tem  template<space><><left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+
 	autocmd filetype c,cpp iab swi  switch<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+
 	autocmd filetype c,cpp iab whi  while<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+
 	autocmd filetype c,cpp iab for  for<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp iab fro  for<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
+
 	autocmd filetype c,cpp iab if   if<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp iab fi   if<space>()<left><c-r>=FixAutoPairPluginAndEatSpace()<cr>
 
@@ -70,7 +88,7 @@ augroup cplusplus
 
 	autocmd filetype c,cpp nnoremap <localleader>/ 0i//<esc>
 
-	autocmd filetype c,cpp nmap <localleader>s :w<cr>:call SwitchSourceHeaderCplusplus()<cr>
+	autocmd filetype c,cpp nnoremap <localleader>s :w<cr>:call SwitchSourceHeaderCplusplus()<cr>
 	autocmd filetype c,cpp
 		function! SwitchSourceHeaderCplusplus() 
 			if (expand ("%:e") == "cpp") 

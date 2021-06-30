@@ -57,11 +57,13 @@ function! GrepOperator(type)
 
 	silent execute "grep! -R " . shellescape(@@) . " ." 
 	copen        
+
 endfunction
 
 function! EatChar() 
 	let dummy = getchar(0) 
 	return ''
+
 endfunction
 
 augroup common
