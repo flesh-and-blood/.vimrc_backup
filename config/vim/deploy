@@ -10,7 +10,7 @@ if [ ! -d ${local_vim_dir} ]; then
 fi 
 
 vim_temp=.vimrc.temp
-if [! -f ${vim_temp}]; then
+if [ ! -f ${vim_temp} ]; then
 	touch ${vim_temp}
 	echo "touch ${vim_temp}"
 fi
