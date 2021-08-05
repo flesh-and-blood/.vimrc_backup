@@ -21,7 +21,7 @@ augroup cplusplus
 	autocmd filetype c,cpp iab pri  private
 	autocmd filetype c,cpp iab pr:  private:<esc><<o<bs>
 
-	autocmd filetype c,cpp iab lk   [[likely]]
+	autocmd filetype c,cpp iab lke  [[likely]]
 	autocmd filetype c,cpp iab ulk  [[unlikely]]
 
 	autocmd filetype c,cpp iab cste constexpr
@@ -45,8 +45,8 @@ augroup cplusplus
 	autocmd filetype c,cpp iab inl  inline
 	autocmd filetype c,cpp iab iln  inline
 
-	autocmd filetype c,cpp iab ret  return
-	autocmd filetype c,cpp iab rett ret<space>=
+	autocmd filetype c,cpp iab re  return
+	autocmd filetype c,cpp iab ret ret<space>=
 
 	autocmd filetype c,cpp iab str  struct
 

@@ -10,6 +10,7 @@ call vundle#begin()
 	Plugin 'tpope/vim-fugitive' 
 	Plugin 'mbbill/undotree' 
 	Plugin 'jiangmiao/auto-pairs'
+	Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 
 " setting for auto-pairs
@@ -53,12 +54,19 @@ nnoremap <localleader>rt 	:NERDTreeRefreshRoot<cr>
 nnoremap <localleader>u 	:NERDTreeClose<cr>:UndotreeToggle<cr>
 nnoremap <localleader>n 	:UndotreeHide<cr>:NERDTreeToggle<cr>
 
-" Close preview window after completing the insertion
+"
+nnoremap git :GitGutterToggle<cr>
+nnoremap gih :GitGutterLineHighlightsToggle<cr>
+nnoremap gif :GitGutterFold<cr>
+nmap gin <Plug>(GitGutterNextHunk)
+nmap gip <Plug>(GitGutterPrevHunk)
+
+" Close preview window after completing the insertio
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 let g:ycm_confirm_extra_conf = 0                 " Don't confirm python conf
-let g:ycm_always_populate_location_list = 1      " Always populae diagnostics list
+let g:ycm_always_populate_location_list = 1      " Always populae diagnostics lit
 let g:ycm_enable_diagnostic_signs = 1            " Enable line highligting diagnostics
 let g:ycm_open_loclist_on_ycm_diags = 1          " Open location list to view diagnostics
 
