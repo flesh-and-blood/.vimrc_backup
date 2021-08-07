@@ -58,8 +58,8 @@ nnoremap <localleader>n 	:UndotreeHide<cr>:NERDTreeToggle<cr>
 nnoremap git :GitGutterToggle<cr>
 nnoremap gih :GitGutterLineHighlightsToggle<cr>
 nnoremap gif :GitGutterFold<cr>
-nmap gin <Plug>(GitGutterNextHunk)
-nmap gip <Plug>(GitGutterPrevHunk)
+nnoremap gin <Plug>(GitGutterNextHunk)
+nnoremap gip <Plug>(GitGutterPrevHunk)
 
 " Close preview window after completing the insertio
 let g:ycm_autoclose_preview_window_after_insertion = 1
