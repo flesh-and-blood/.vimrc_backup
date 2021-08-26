@@ -3,7 +3,8 @@
 home_source=(`ls env_*`)
 
 for i in "${home_source[@]}"; do
-	target_temp=`ls ${j} | sed 's/env_\(.*\)/\.\1/g'`
+	target_temp=`ls ${i} | sed 's/env_\(.*\)/\.\1/g'`
+	echo "set ${i} to ${target_temp}"
 
 	cp -f ${i} ${HOME}/${target_temp}
 	echo "cp -f ${i} ${HOME}/${target_temp}"
