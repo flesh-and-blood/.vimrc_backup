@@ -88,14 +88,41 @@ augroup cplusplus
 
 	autocmd filetype c,cpp nnoremap <localleader>/ 0i//<esc>
 
-	autocmd filetype c,cpp nnoremap <localleader>s :w<cr>:call SwitchSourceHeaderCplusplus()<cr>
+	autocmd filetype c,cpp nnoremap <localleader>s :w<cr>:call SwitchSourceHeader()<cr>
 	autocmd filetype c,cpp
-		function! SwitchSourceHeaderCplusplus() 
-			if (expand ("%:e") == "cpp") 
-				find %:t:r.h 
-			else 
-				find %:t:r.cpp 
-			endif 
+		function! SwitchSourceHeader() 
+			" header -> source
+			if (expand("%:e") == "h")
+				let cmd = 'fd ' . expand("%:t:r") . ".cpp"
+				let result = system(cmd)
+				if (len(result) != 0)
+					exec "edit " . result
+					return 
+				endif
+
+				let cmd = 'fd ' . expand("%:t:r") . ".cc"
+				let result = system(cmd)
+				if (len(result) != 0)
+					exec "edit " . result
+					return 
+				endif
+
+				echo "no source file found"
+				return
+
+			" source -> header
+			elseif (expand("%:e") == "cc" || expand("%:e") == "cpp")
+				let cmd = 'fd ' . expand("%:t:r") . ".h"
+				let result = system(cmd)
+				if (len(result) != 0)
+					exec "edit " . result
+					return 
+				endif
+
+				echo "no header file found"
+				return 
+			endif
+
 		endfunction
 
 augroup END

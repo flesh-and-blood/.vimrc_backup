@@ -1,4 +1,3 @@
-" common settting 
 let maplocalleader=";" 
 
 filetype 	plugin indent on

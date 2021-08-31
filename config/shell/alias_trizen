@@ -1,9 +1,8 @@
 #! /usr/bin/bash
 
-alias tf='trizen --forcecolor -Ss'
-
-alias t='trizen'
-alias ts='trizen -S'
-alias tr='trizen -Rc'
-alias tc='trizen -Sc'
-alias up='trizen -Syu'
+alias t='trizen --forcecolors'
+alias tf='trizen --forcecolors -Ss'
+alias ts='trizen --forcecolors -S'
+alias tr='trizen --forcecolors -Rc'
+alias tc='trizen --forcecolors -Sc'
+alias up='trizen --forcecolors -Syu'

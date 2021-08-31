@@ -1,0 +1,3 @@
+[submodule "config/bin/findnear"]
+	path = config/bin/findnear
+	url = git@github.com:codea-ppp/findnear.git

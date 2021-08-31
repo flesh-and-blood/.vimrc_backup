@@ -6,6 +6,7 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more='less -R'
 alias less='less -R'
+alias ag='ag --color'
 
 alias e='exa --color always'
 alias sl='exa --color always'
