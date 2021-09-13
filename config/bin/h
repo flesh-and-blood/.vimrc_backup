@@ -28,9 +28,9 @@ for headers in $* ; do
 	touch ${headers}.h 
 	echo "create header file ${headers}"
 
-	echo "#ifndef ${guard^^}_H_" >> 		${headers}.h
-	echo "#define ${guard^^}_H_" >> 		${headers}.h
-	echo "#endif 	// ${guard^^}_H_" >> 	${headers}.h
+	echo "#ifndef ${guard^^}_${headers^^}_H_" >> 		${headers}.h
+	echo "#define ${guard^^}_${headers^^}_H_" >> 		${headers}.h
+	echo "#endif 	// ${guard^^}_${headers^^}_H_" >> 	${headers}.h
 
 done
 
