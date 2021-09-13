@@ -1,15 +1,36 @@
 #!/bin/bash
 
+create_guard()
+{
+	current_path=$(pwd)
+
+	while [ ! -d .git ]; do
+		cd ..
+	done
+
+	cd ..
+	absoluate_path=$(pwd)
+
+	cd ${current_path}
+
+	guard=${current_path:${#absoluate_path}}
+	guard=$(echo ${guard} | sed "s/\//_/g")
+	export guard
+}
+
 if [ $# -lt 1 ]; then
 	echo "no enough args"
 fi
 
 for headers in $* ; do
-	echo "create header file ${headers}"
-	touch ${headers}.h 
+	create_guard
 
-	echo "#ifndef ${headers^^}_H_" > 		${headers}.h
-	echo "#define ${headers^^}_H_" >> 		${headers}.h
-	echo "#endif 	// ${headers^^}_H_" >> 	${headers}.h
+	touch ${headers}.h 
+	echo "create header file ${headers}"
+
+	echo "#ifndef ${guard^^}_H_" >> 		${headers}.h
+	echo "#define ${guard^^}_H_" >> 		${headers}.h
+	echo "#endif 	// ${guard^^}_H_" >> 	${headers}.h
 
 done
+
