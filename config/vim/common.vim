@@ -20,16 +20,16 @@ nnoremap <localleader>k <c-w>k
 nnoremap <localleader>l <c-w>l
 
 " jumping between tabs
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
+nnoremap <localleader>1 1gt
+nnoremap <localleader>2 2gt
+nnoremap <localleader>3 3gt
+nnoremap <localleader>4 4gt
+nnoremap <localleader>5 5gt
+nnoremap <localleader>6 6gt
+nnoremap <localleader>7 7gt
+nnoremap <localleader>8 8gt
+nnoremap <localleader>9 9gt
+nnoremap <localleader>0 :tablast<cr>
 
 " n => next / l => last of current line
 onoremap in( :<c-u>normal! f(vi(<cr>
