@@ -29,6 +29,9 @@ augroup cplusplus
 
 	autocmd filetype c,cpp iab oper operator
 
+	autocmd filetype c,cpp iab cahr char
+	autocmd filetype c,cpp iab carh char
+
 	autocmd filetype c,cpp iab typ  typename
 
 	autocmd filetype c,cpp iab nam  namespace
