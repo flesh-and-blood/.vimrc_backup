@@ -12,7 +12,6 @@ augroup Python
 	autocmd filetype python iab cal 	class:<esc>i
 
 	autocmd filetype python iab ret 	return
-	autocmd filetype python iab rett 	ret<space>=
 
 	autocmd filetype python iab for 	forin<space>:<esc>Fra
 	autocmd filetype python iab fro 	forin<space>:<esc>Fra
