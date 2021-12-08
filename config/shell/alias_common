@@ -18,7 +18,7 @@ alias cat='bat'
 alias docker='sudo docker'
 alias dock='sudo docker'
 
-alias qtc="$HOME/Documents/projects/Qt/Tools/QtCreator/bin/qtcreator.sh"
+alias qtc="qtcreator"
 alias cl='clear'
 alias shut='shutdown 0'
 alias q='exit'
