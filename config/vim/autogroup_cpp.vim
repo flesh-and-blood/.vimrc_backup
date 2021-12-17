@@ -95,14 +95,21 @@ augroup cplusplus
 		function! SwitchSourceHeader() 
 			" header -> source
 			if (expand("%:e") == "h")
-				let cmd = 'fd ' . expand("%:t:r") . ".cpp"
+				let cmd = 'fd -1 ' . expand("%:t:r") . ".cpp"
 				let result = system(cmd)
 				if (len(result) != 0)
 					exec "edit " . result
 					return 
 				endif
 
-				let cmd = 'fd ' . expand("%:t:r") . ".cc"
+				let cmd = 'fd -1 ' . expand("%:t:r") . ".cc"
+				let result = system(cmd)
+				if (len(result) != 0)
+					exec "edit " . result
+					return 
+				endif
+
+				let cmd = 'fd -1 ' . expand("%:t:r") . ".c"
 				let result = system(cmd)
 				if (len(result) != 0)
 					exec "edit " . result
@@ -113,8 +120,8 @@ augroup cplusplus
 				return
 
 			" source -> header
-			elseif (expand("%:e") == "cc" || expand("%:e") == "cpp")
-				let cmd = 'fd ' . expand("%:t:r") . ".h"
+			elseif (expand("%:e") == "cc" || expand("%:e") == "cpp" || expand("%:e") == "c")
+				let cmd = 'fd -1 ' . expand("%:t:r") . ".h"
 				let result = system(cmd)
 				if (len(result) != 0)
 					exec "edit " . result
