@@ -60,6 +60,15 @@ augroup cplusplus
 	autocmd filetype c,cpp iab vodi void
 	autocmd filetype c,cpp iab ovid void
 
+	autocmd filetype cpp iab ifn if<space>(nullptr<space>==<space>)<esc>i
+	autocmd filetype c iab ifn if<space>(NULL<space>==<space>)<esc>i
+	autocmd filetype cpp iab fin if<space>(nullptr<space>==<space>)<esc>i
+	autocmd filetype c iab fin if<space>(NULL<space>==<space>)<esc>i
+	autocmd filetype cpp iab ifN if<space>(nullptr<space>!=<space>)<esc>i
+	autocmd filetype c iab ifN if<space>(NULL<space>!=<space>)<esc>i
+	autocmd filetype cpp iab fiN if<space>(nullptr<space>!=<space>)<esc>i
+	autocmd filetype c iab fiN if<space>(NULL<space>!=<space>)<esc>i
+
 	autocmd filetype c,cpp iab mai 	<c-r>=CompletionMain()<cr><esc>O<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp iab mia 	<c-r>=CompletionMain()<cr><esc>O<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp
