@@ -61,6 +61,8 @@ nnoremap gif :GitGutterFold<cr>
 nnoremap gin <Plug>(GitGutterNextHunk)
 nnoremap gip <Plug>(GitGutterPrevHunk)
 
+let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+
 " Close preview window after completing the insertio
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -76,7 +78,12 @@ let g:ycm_auto_trigger = 1                       " Enable completion menu
 let g:ycm_show_diagnostic_ui = 1                 " Show diagnostic display features
 let g:ycm_error_symbol = '>>'                    " The error symbol in Vim gutter
 let g:ycm_enable_diagnostic_signs = 1            " Display icons in Vim's gutter, error, warnings
+
 let g:ycm_enable_diagnostic_highlighting = 1     " Highlight regions of diagnostic text
 let g:ycm_echo_current_diagnostic = 1            " Echo line's diagnostic that cursor is on
+
+" https://clangd.llvm.org/installation.html
+let g:ycm_clangd_uses_ycmd_caching = 0			 " Let clangd fully control code completion
+let g:ycm_clangd_binary_path = exepath("clangd") " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 
 nnoremap <localleader>f		:YcmCompleter FixIt<cr>
