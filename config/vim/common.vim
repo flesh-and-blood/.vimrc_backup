@@ -5,11 +5,6 @@ filetype 	detect
 syntax 		enable
 
 " arduino-ctags leader-d => definition / leader-t => return
-" nnoremap <localleader>d <c-]>zz
-" nnoremap <localleader>t <c-t>zz
-
-nnoremap <localleader>d :YcmCompleter GoTo<cr>
-
 nnoremap <localleader>w :mksession!<cr>:w<cr>
 nnoremap <space> za
 inoremap jk <esc>

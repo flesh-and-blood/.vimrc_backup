@@ -86,4 +86,7 @@ let g:ycm_echo_current_diagnostic = 1            " Echo line's diagnostic that c
 let g:ycm_clangd_uses_ycmd_caching = 0			 " Let clangd fully control code completion
 let g:ycm_clangd_binary_path = exepath("clangd") " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 
+nnoremap <c-]> 				:YcmCompleter GoTo<cr>
 nnoremap <localleader>f		:YcmCompleter FixIt<cr>
+nnoremap <localleader>a		:YcmCompleter Format<cr>
+nnoremap <localleader>r		:YcmCompleter RefactorRename
