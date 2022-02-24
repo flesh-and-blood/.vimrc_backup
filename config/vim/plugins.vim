@@ -11,6 +11,7 @@ call vundle#begin()
 	Plugin 'mbbill/undotree' 
 	Plugin 'jiangmiao/auto-pairs'
 	Plugin 'airblade/vim-gitgutter'
+    Plugin 'rhysd/vim-clang-format'
 call vundle#end()
 
 " setting for auto-pairs
@@ -88,5 +89,12 @@ let g:ycm_clangd_binary_path = exepath("clangd") " Use installed clangd, not YCM
 
 nnoremap <c-]> 				:YcmCompleter GoTo<cr>
 nnoremap <localleader>f		:YcmCompleter FixIt<cr>
-nnoremap <localleader>a		:YcmCompleter Format<cr>
 nnoremap <localleader>r		:YcmCompleter RefactorRename
+
+nnoremap <localleader>a		:ClangFormat<cr>
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup"}

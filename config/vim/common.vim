@@ -37,15 +37,27 @@ onoremap il[ :<c-u>normal! F]vi[<cr>
 onoremap il{ :<c-u>normal! f}vi{<cr>
 
 " global settings 
-set 	wrap			encoding=utf-8			nocompatible
-set 	showcmd 		showmatch				wildmenu
-set 	tabstop=4		shiftwidth=4			"expandtab
-set 	laststatus=2	statusline=%F:\ %l/%L
-set 	autoindent 		smartindent
-set 	number 			relativenumber 
-set 	cursorline 		cursorcolumn			ruler
-set 	incsearch 		hlsearch
-set 	foldenable
+set wrap
+set encoding=utf-8
+set nocompatible
+set showcmd
+set showmatch
+set wildmenu
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set laststatus=2
+set statusline=%F:\ %l/%L
+set autoindent
+set smartindent
+set number
+set relativenumber 
+set cursorline 
+set cursorcolumn
+set ruler
+set incsearch
+set hlsearch
+set foldenable
 
 " grep inner vim 
 if executable('ag') 

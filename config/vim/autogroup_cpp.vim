@@ -69,12 +69,8 @@ augroup cplusplus
 	autocmd filetype cpp iab fiN if<space>(nullptr<space>!=<space>)<esc>i
 	autocmd filetype c iab fiN if<space>(NULL<space>!=<space>)<esc>i
 
-	autocmd filetype c,cpp iab mai 	<c-r>=CompletionMain()<cr><esc>O<c-r>=FixAutoPairPluginAndEatSpace()<cr>
-	autocmd filetype c,cpp iab mia 	<c-r>=CompletionMain()<cr><esc>O<c-r>=FixAutoPairPluginAndEatSpace()<cr>
-	autocmd filetype c,cpp
-		function! CompletionMain()
-			return "int main(int argc, char* argv[])" . BreakLine() . "{" .  BreakLine() . "}"
-		endfunction  
+	autocmd filetype c,cpp iab mai 	int<space>main(int<space>argc,<space>char*<space>argv[])
+	autocmd filetype c,cpp iab mia 	int<space>main(int<space>argc,<space>char*<space>argv[])
 
 	autocmd filetype c,cpp iab try  <c-r>=CompletionTry()<cr><esc>3kO<c-r>=FixAutoPairPluginAndEatSpace()<cr>
 	autocmd filetype c,cpp
