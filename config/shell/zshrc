@@ -248,4 +248,4 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 export EDITOR=vim
-export PATH=${PATH}:${HOME}/Documents/usr/bin:${HOME}/Documents/projects/flutter/bin
+export PATH=${PATH}:${HOME}/Documents/usr/bin:/home/codea/Documents/projects/ESP8266_RTOS_SDK/components/esptool_py/esptool:/home/codea/Documents/projects/ESP8266_RTOS_SDK/components/partition_table/:/home/codea/.espressif/python_env/rtos3.4_py3.10_env/bin:/home/codea/Documents/projects/ESP8266_RTOS_SDK/tools:/home/codea/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/opt/nessus/bin:/opt/nessus/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/codea/Documents/usr/bin:/home/codea/Documents/projects/flutter/bin:/opt/xtensa-lx106-elf-gcc/bin
