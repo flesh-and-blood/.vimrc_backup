@@ -1,17 +1,19 @@
 call vundle#begin() 
-	Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'} 
-	Plugin 'git://git.wincent.com/command-t.git' 
-	Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} 
-	Plugin 'octol/vim-cpp-enhanced-highlight' 
 	Plugin 'VundleVim/Vundle.vim' 
+
+    Plugin 'valloric/youcompleteme'
+	Plugin 'rdnetto/YCM-Generator'
+	Plugin 'git://git.wincent.com/command-t.git' 
+	Plugin 'octol/vim-cpp-enhanced-highlight' 
+	Plugin 'airblade/vim-gitgutter'
+    Plugin 'rhysd/vim-clang-format'
 	Plugin 'jacoborus/tender.vim' 
 	Plugin 'raimondi/delimitmate' 
 	Plugin 'scrooloose/nerdtree' 
 	Plugin 'tpope/vim-fugitive' 
 	Plugin 'mbbill/undotree' 
 	Plugin 'jiangmiao/auto-pairs'
-	Plugin 'airblade/vim-gitgutter'
-    Plugin 'rhysd/vim-clang-format'
+
 call vundle#end()
 
 " setting for auto-pairs
@@ -63,6 +65,7 @@ nnoremap gin <Plug>(GitGutterNextHunk)
 nnoremap gip <Plug>(GitGutterPrevHunk)
 
 let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+let g:ycm_global_ycm_extra_conf = ".vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 " Close preview window after completing the insertio
 let g:ycm_autoclose_preview_window_after_insertion = 1
