@@ -31,6 +31,11 @@ for i in "${alias_config[@]}"; do
 	echo "write source ${PWD}/${i} into ${zsh_temp}"
 done
 
+echo "source ${PWD}/sdkrc" >> ${bash_temp}
+echo "write source ${PWD}/sdkrc into ${bash_temp}"
+echo "source ${PWD}/sdkrc" >> ${zsh_temp}
+echo "write source ${PWD}/sdkrc into ${zsh_temp}"
+
 
 cp -f ${bash_temp} $HOME/.bashrc
 echo "cp -f ${bash_temp} ${HOME}/.bashrc"

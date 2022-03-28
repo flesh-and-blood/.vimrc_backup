@@ -247,6 +247,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-export IDF_PATH=${HOME}/Documents/projects/ESP8266_RTOS_SDK
 export EDITOR=vim
-export PATH=${PATH}:${HOME}/Documents/usr/bin:/home/codea/Documents/projects/ESP8266_RTOS_SDK/components/esptool_py/esptool:/home/codea/Documents/projects/ESP8266_RTOS_SDK/components/partition_table/:/home/codea/.espressif/python_env/rtos3.4_py3.10_env/bin:/home/codea/Documents/projects/ESP8266_RTOS_SDK/tools:/home/codea/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/opt/nessus/bin:/opt/nessus/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/codea/Documents/usr/bin:/home/codea/Documents/projects/flutter/bin:${HOME}/.espressif/tools/xtensa-lx106-elf/esp-2020r3-49-gd5524c1-8.4.0/xtensa-lx106-elf/bin
+
+export PATH=${PATH}:${HOME}/Documents/usr/bin:/home/codea/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/opt/nessus/bin:/opt/nessus/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/codea/Documents/usr/bin
