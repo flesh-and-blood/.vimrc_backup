@@ -4,4 +4,5 @@ alias ivm='vim'
 alias vims='vim -S Session.vim'
 alias ivms='vim -S Session.vim'
 alias imvs='vim -S Session.vim'
+alias vism='vim -S Session.vim'
 

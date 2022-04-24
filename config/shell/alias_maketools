@@ -1,6 +1,6 @@
 #! /usr/bin/bash 
 
-alias mk='make'
+alias mk='make -j12'
 alias amke='make'
 alias cmk='cmake'
 alias ccmk='ccmake'
