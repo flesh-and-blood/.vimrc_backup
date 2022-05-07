@@ -1,3 +1,5 @@
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
+
+export LD_LIBRARY_PATH=${SDK_PATH}/python3.6/lib64:${LD_LIBARAY_PATH}

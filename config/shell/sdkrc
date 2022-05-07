@@ -1,3 +1,5 @@
+export PROJECT_PATH=${HOME}/Documents/projects
+
 export SDK_PATH=${HOME}/Documents/SDK
 
 # ESP8266 SDK
@@ -9,4 +11,8 @@ export PATH=${PATH}:${IDF_PATH}/components/esptool_py/esptool:${IDF_PATH}/compon
 export PATH=${PATH}:/home/codea/Documents/projects/flutter/bin
 
 # arm gcc SDK, not installed from pacman because nano.spec not fount there
-export PATH=${PATH}:${SDK_PATH}/gcc-arm-none-eabi-5_4-2016q3/bin
+export PATH=${PATH}:${SDK_PATH}/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi/bin
+
+# python3.6
+export PATH=${PATH}:${SDK_PATH}/python3.6/bin
+export LD_LIBRARY_PATH=${SDK_PATH}/python3.6/lib64:${LD_LIBRARY_PATH}
