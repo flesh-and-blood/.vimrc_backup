@@ -45,6 +45,8 @@ augroup cplusplus
 
 	autocmd filetype c,cpp iab sta  static
 
+	autocmd filetype c,cpp iab std std::
+
 	autocmd filetype c,cpp iab inl  inline
 	autocmd filetype c,cpp iab iln  inline
 
