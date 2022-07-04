@@ -16,3 +16,5 @@ export PATH=${PATH}:${SDK_PATH}/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi/bin
 # python3.6
 export PATH=${PATH}:${SDK_PATH}/python3.6/bin
 export LD_LIBRARY_PATH=${SDK_PATH}/python3.6/lib64:${LD_LIBRARY_PATH}
+
+export INPHASE_PATH=${PROJECT_PATH}/inphase
