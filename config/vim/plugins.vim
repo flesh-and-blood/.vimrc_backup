@@ -6,7 +6,6 @@ call vundle#begin()
 	Plugin 'git://git.wincent.com/command-t.git' 
 	Plugin 'octol/vim-cpp-enhanced-highlight' 
 	Plugin 'airblade/vim-gitgutter'
-    Plugin 'rhysd/vim-clang-format'
 	Plugin 'jacoborus/tender.vim' 
 	Plugin 'raimondi/delimitmate' 
 	Plugin 'scrooloose/nerdtree' 
@@ -91,13 +90,6 @@ let g:ycm_clangd_uses_ycmd_caching = 0			 " Let clangd fully control code comple
 let g:ycm_clangd_binary_path = exepath("clangd") " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 
 nnoremap <c-]> 				:YcmCompleter GoTo<cr>
+nnoremap <localleader>a		:YcmCompleter Format<cr>
 nnoremap <localleader>f		:YcmCompleter FixIt<cr>
 nnoremap <localleader>r		:YcmCompleter RefactorRename
-
-nnoremap <localleader>a		:ClangFormat<cr>
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Stroustrup"}
