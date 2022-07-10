@@ -247,6 +247,8 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
+alias iconv-gbk2utf8='iconv -f GBK -t UTF-8'
+
 export EDITOR=vim
 
 export PATH=${PATH}:${HOME}/Documents/usr/bin:/home/codea/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/opt/nessus/bin:/opt/nessus/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/codea/Documents/usr/bin
