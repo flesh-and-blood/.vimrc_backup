@@ -61,7 +61,7 @@ set foldenable
 
 " grep inner vim 
 if executable('ag') 
-	set grepprg=ag\ --nogroup\ --nocolor 
+	set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ --case-sensitive\ -w 
 endif
 
 vnoremap <localleader>g :<c-u>call GrepOperator(visualmode())<cr>
