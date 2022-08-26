@@ -3,7 +3,7 @@
 alias gga='git add'
 alias ggc='git commit -m'
 alias ggu='git submodule update --init --recursive'
-alias ggp='git push'
+alias ggp='git push && git push --tags'
 alias pgg='git pull'
 alias ggs='git status'
 alias ggd='git difftool'
