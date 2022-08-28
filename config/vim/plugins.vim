@@ -53,7 +53,7 @@ let g:gruvbox_contrast_dark='dark'
 nnoremap <localleader>q 	:NERDTreeClose<cr>:UndotreeHide<cr>:mksession!<cr>:w<cr>:qall<cr>
 nnoremap <localleader>o 	:NERDTreeFocus<cr>
 nnoremap <localleader>rt 	:NERDTreeRefreshRoot<cr>
-nnoremap <localleader>u 	:NERDTreeClose<cr>:UndotreeToggle<cr>
+nnoremap <localleader>u 	:NERDTreeClose<cr>:UndotreeToggle<cr>:UndotreeFocus<cr>
 nnoremap <localleader>n 	:UndotreeHide<cr>:NERDTreeToggle<cr>
 
 "
