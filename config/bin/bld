@@ -1,8 +1,33 @@
 #!/bin/bash
 
+cmake_build_type()
+{
+    build_type=$1
+    source_path=$2
+
+    echo "build type ${build_type} ${source_path}"
+
+    if [ ! -d "./${build_type}" ]; then
+        mkdir ${build_type}
+    fi
+
+    echo "cd ./${build_type}"
+    cd "./${build_type}"
+
+    echo "cmake -G Ninja -DCMAKE_BUILD_TYPE=${build_type} -S${source_path} -B."
+    cmake -G Ninja -DCMAKE_BUILD_TYPE=${build_type} -S${source_path} -B.
+
+    echo "ninja"
+    ninja
+
+    cd ..
+    return 0
+}
+
 build() 
 {
-	# create build directory if not exsit
+    source_path="${PWD}"
+
     if [ -d "$PWD/build" ] ; then
 		echo "cd "$PWD/build""
         cd "$PWD/build"
@@ -14,32 +39,40 @@ build()
     if [ -f "../CMakeLists.txt" ] ; then 
 		case $1 in
 			release) 
-				echo "set compile type release"
-				cmake_flag="-DCMAKE_BUILD_TYPE=Release ${cmake_flag}"
+                cmake_build_type Release ${source_path}
 				;;
 			re)
-				echo "set compile type release"
-				cmake_flag="-DCMAKE_BUILD_TYPE=Release ${cmake_flag}"
+                cmake_build_type Release ${source_path}
 				;;
-
+            r)
+                cmake_build_type Release ${source_path}
+				;;
 			debug)
-				echo "set compile type debug"
-				cmake_flag="-DCMAKE_BUILD_TYPE=Debug ${cmake_flag}"
+                cmake_build_type Debug ${source_path}
 				;;
 			de)
-				echo "set compile type debug"
-				cmake_flag="-DCMAKE_BUILD_TYPE=Debug ${cmake_flag}"
+                cmake_build_type Debug ${source_path}
+				;;
+			d)
+                cmake_build_type Debug ${source_path}
+				;;
+			all)
+                cmake_build_type Release ${source_path}
+                cmake_build_type Debug ${source_path}
+				;;
+			a)
+                cmake_build_type Release ${source_path}
+                cmake_build_type Debug ${source_path}
+				;;
+			"")
+                cmake_build_type Release ${source_path}
+                cmake_build_type Debug ${source_path}
 				;;
 			*)
 				echo "unknow type $1"
+                return -1
 				;;
 		esac
-
-		echo "cmake ${cmake_flag} -G Ninja .."
-		cmake ${cmake_flag} -G Ninja ..
-
-		echo "ninja"
-		ninja
 
     else if [ -f "../makefile" ] || [ -f "../Makefile" ] || [ -f "../GNUMakefile" ]; then 
 		echo "make -j 8 -C .."
@@ -48,6 +81,7 @@ build()
     fi fi
 
     cd ..
+    return 0
 }
 
 build $*
